@@ -4,11 +4,16 @@ import "./App.css";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import PrivateRoute from "./components/PrivateRoute";
-import OdinBook from "./components/OdinBook";
+import Feed from "./components/Feed";
 import Navigation from "./components/Navigation";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import { UserProvider } from "./contexts/UserContext";
+import FriendList from "./components/FriendList";
+import FriendSugestions from "./components/FriendSugestions";
+import Notifications from "./components/Notifications";
+import SinglePost from "./components/SinglePost";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   return (
@@ -18,7 +23,26 @@ function App() {
         <Container>
           <Routes>
             <Route exact path="/" element={<PrivateRoute />}>
-              <Route exact path="/" element={<OdinBook />} />
+              <Route exact path="/" element={<Feed />} />
+            </Route>
+            <Route exact path="/friendlist" element={<PrivateRoute />}>
+              <Route exact path="/friendlist" element={<FriendList />} />
+            </Route>
+            <Route exact path="/friendsugestions" element={<PrivateRoute />}>
+              <Route
+                exact
+                path="/friendsugestions"
+                element={<FriendSugestions />}
+              />
+            </Route>
+            <Route exact path="/singlepost" element={<PrivateRoute />}>
+              <Route exact path="/singlepost" element={<SinglePost />} />
+            </Route>
+            <Route exact path="/notifications" element={<PrivateRoute />}>
+              <Route exact path="/notifications" element={<Notifications />} />
+            </Route>
+            <Route exact path="/userprofile" element={<PrivateRoute />}>
+              <Route exact path="/userprofile" element={<UserProfile />} />
             </Route>
 
             <Route exact path="/signup" element={<Signup />} />

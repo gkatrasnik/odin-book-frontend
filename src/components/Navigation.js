@@ -19,9 +19,18 @@ function Navigation() {
         </Nav.Link>
 
         {user ? (
-          <Nav.Link onClick={logout}>Logout</Nav.Link>
+          <>
+            <Nav.Link onClick={logout}>Logout</Nav.Link>
+            <Link to="userprofile">User Profile</Link>
+            <Link to="friendlist">Friends</Link>
+            <Link to="friendsugestions">Friend Sugestions</Link>
+            <Link to="notifications">Notifications</Link>
+            <Link to="singlepost">Post</Link>
+            <Link to="/">Feed</Link>
+          </>
         ) : (
           <>
+            {/* Make it look nice ---------------------------------------------------- */}
             <Link to="login">Login</Link>
 
             <Link to="signup">Sign up</Link>
