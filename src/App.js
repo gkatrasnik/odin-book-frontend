@@ -38,6 +38,7 @@ function App() {
             <Route exact path="/singlepost" element={<PrivateRoute />}>
               <Route exact path="/singlepost" element={<SinglePost />} />
             </Route>
+
             <Route exact path="/notifications" element={<PrivateRoute />}>
               <Route exact path="/notifications" element={<Notifications />} />
             </Route>
