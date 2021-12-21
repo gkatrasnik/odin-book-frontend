@@ -1,6 +1,7 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
+import { Link } from "react-router-dom";
 
 function Navigation() {
   const { user, logout } = useContext(UserContext);
@@ -21,8 +22,9 @@ function Navigation() {
           <Nav.Link onClick={logout}>Logout</Nav.Link>
         ) : (
           <>
-            <Nav.Link href="login">Login</Nav.Link>
-            <Nav.Link href="signup">Sign up</Nav.Link>
+            <Link to="login">Login</Link>
+
+            <Link to="signup">Sign up</Link>
           </>
         )}
       </Nav>
