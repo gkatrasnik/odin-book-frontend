@@ -14,24 +14,16 @@ import FriendSugestions from "./components/FriendSugestions";
 import Notifications from "./components/Notifications";
 import SinglePost from "./components/SinglePost";
 import UserProfile from "./components/UserProfile";
-import LoadingModal from "./components/LoadingModal";
 
 function App() {
-  const [loading, setLoading] = useState(false);
-
   return (
     <HashRouter>
       <UserProvider>
         <Navigation />
         <Container>
-          {loading && <LoadingModal />}
           <Routes>
             <Route exact path="/" element={<PrivateRoute />}>
-              <Route
-                exact
-                path="/"
-                element={<Feed setLoading={setLoading} />}
-              />
+              <Route exact path="/" element={<Feed />} />
             </Route>
 
             <Route exact path="/friendlist" element={<PrivateRoute />}>
@@ -58,16 +50,8 @@ function App() {
               <Route exact path="/userprofile" element={<UserProfile />} />
             </Route>
 
-            <Route
-              exact
-              path="/signup"
-              element={<Signup setLoading={setLoading} />}
-            />
-            <Route
-              exact
-              path="/login"
-              element={<Login setLoading={setLoading} />}
-            />
+            <Route exact path="/signup" element={<Signup />} />
+            <Route exact path="/login" element={<Login />} />
             <Route to="/" />
           </Routes>
         </Container>

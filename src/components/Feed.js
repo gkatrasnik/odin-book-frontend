@@ -2,23 +2,26 @@ import { useState, useEffect, useContext } from "react";
 
 import axios from "axios";
 import { UserContext } from "../contexts/UserContext";
+import LoadingModal from "./LoadingModal";
+import Post from "./Post";
 
-function Feed(props) {
+function Feed() {
+  const [loading, setLoading] = useState(false);
+
   const { user } = useContext(UserContext);
 
-  const [postsList, setPostsList] = useState([]);
+  const [postsList, setPostsList] = useState();
 
   useEffect(() => {
     getPostsData();
   }, []);
 
   const getPostsData = async () => {
-    props.setLoading(true);
+    setLoading(true);
 
     const token = localStorage.getItem("token");
-
-    try {
-      const response = await axios.post(
+    axios
+      .post(
         `/api/posts/`,
         {
           userId: user._id,
@@ -26,18 +29,35 @@ function Feed(props) {
         {
           headers: { Authorization: "Bearer " + token },
         }
-      );
-
-      setPostsList(response.data);
-      console.log(response.data);
-      props.setLoading(false);
-    } catch (err) {
-      console.log(err);
-      props.setLoading(false);
-    }
+      )
+      .then((response) => {
+        setPostsList(response.data, console.log(response.data));
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
   };
 
-  return <>aaa</>;
+  return (
+    <>
+      {loading && <LoadingModal />}
+      {postsList && (
+        <ul style={{ padding: 0 }}>
+          {postsList.posts.map((item, index) => {
+            return (
+              <li
+                key={index}
+                className="d-flex flex-direction-column justify-content-center"
+              >
+                <Post getPostsData={getPostsData} item={item} index={index} />
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </>
+  );
 }
 
 export default Feed;
