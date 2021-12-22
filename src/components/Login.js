@@ -27,10 +27,13 @@ function Login(props) {
           login(response.data.user);
           localStorage.setItem("token", response.data.token);
           console.log(response.data.user, response.data.token);
-          navigate("/");
+
           props.setLoading(false);
+          navigate("/");
         },
         (error) => {
+          props.setLoading(false);
+
           alert("Can not log you in. Check user name and password");
           console.log(error);
         }

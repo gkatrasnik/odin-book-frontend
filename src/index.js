@@ -6,7 +6,8 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://odin-book-api.herokuapp.com/";
+axios.defaults.baseURL = "https://odin-book-api.herokuapp.com";
+//axios.defaults.baseURL = "http://localhost:4000/";
 
 ReactDOM.render(
   <React.StrictMode>
