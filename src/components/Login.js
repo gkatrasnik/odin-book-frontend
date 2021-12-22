@@ -5,14 +5,17 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login(props) {
   const [currentUsername, setCurrentUsername] = useState("");
   const [currentPassword, setCurrentPassword] = useState("");
   const { user, login } = useContext(UserContext);
   const navigate = useNavigate();
 
   const loginHandler = (event) => {
+    props.setLoading(true);
+
     event.preventDefault();
+
     axios
       .post(`/api/users/login`, {
         username: currentUsername,
@@ -25,6 +28,7 @@ function Login() {
           localStorage.setItem("token", response.data.token);
           console.log(response.data.user, response.data.token);
           navigate("/");
+          props.setLoading(false);
         },
         (error) => {
           alert("Can not log you in. Check user name and password");
