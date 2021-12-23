@@ -15,12 +15,12 @@ function Friend(props) {
     event.preventDefault();
     
     
-    var postId = props.item._id;
+    var targetUserId = props.item.user._id; // DOES IT WORK??
     const token = localStorage.getItem("token");
 
     
     axios
-      .delete(`/api/users/${currentUserId}/delete-friend`, {
+      .delete(`/api/users/${targetUserId}/delete-friend`, {
         userId: user._id, //current user
       },{
         headers: { Authorization: "Bearer " + token },
@@ -40,7 +40,7 @@ function Friend(props) {
     </Link>
   <Button
         variant="danger"
-        onClick={handleCommentDelete}
+        onClick={handleFriendDelete}
         className="float-end"
       >
         <TrashFill />
