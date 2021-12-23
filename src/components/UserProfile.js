@@ -16,7 +16,7 @@ function UserProfile() {
     const token = localStorage.getItem("token");
     axios
       .post(
-        `/api/users/${userId}/friends`,
+        `/api/users/${userId}`,
         {
           headers: { Authorization: "Bearer " + token },
         }
