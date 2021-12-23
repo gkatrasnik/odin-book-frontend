@@ -1,6 +1,6 @@
 
 import React, { useState, useContext } from "react";
-import { Card, Button, Form } from "react-bootstrap";
+import { Card, Button, Form, Link } from "react-bootstrap";
 import Comment from "./Comment";
 import axios from "axios";
 import { TrashFill } from "react-bootstrap-icons";
@@ -34,7 +34,18 @@ function Friend(props) {
 
   return (
     <Card>
-  <Card.Body>{props.item.user.firstName} {props.item.user.lastName} </Card.Body>
+  <Card.Body>
+    <Link to="UserProfile" state={{ userId: props.item.user._id }}> {/*CHECK IF IT WORKS */}
+    {props.item.user.firstName} {props.item.user.lastName}
+    </Link>
+  <Button
+        variant="danger"
+        onClick={handleCommentDelete}
+        className="float-end"
+      >
+        <TrashFill />
+      </Button>
+   </Card.Body>
 </Card>
   )
 }
