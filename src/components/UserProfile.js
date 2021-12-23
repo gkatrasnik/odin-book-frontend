@@ -3,8 +3,8 @@ import { useLocation } from 'react-router-dom'
 function UserProfile() {
   const location = useLocation()
   const { userId } = location.state //user passed from Link (friends page)
-  const [loading, setLoading] = useState(false);
-  
+
+  const [loading, setLoading] = useState(false);  
   const [profile, setProfile] = useState();
 
   useEffect(() => {
