@@ -14,19 +14,18 @@ function Navigation() {
         </Navbar.Brand>
       </Container>
       <Nav className="me-auto">
-        <Nav.Link>
+        <Link to="/UserProfile" state={{ targetUser: user }}>
           {user.firstname} {user.lastname}
-        </Nav.Link>
+        </Link>
 
         {user ? (
           <>
             <Nav.Link onClick={logout}>Logout</Nav.Link>
-            <Link to="userprofile">User Profile</Link>
-            <Link to="friendlist">Friends</Link>
-            <Link to="friendsugestions">Friend Sugestions</Link>
-            <Link to="notifications">Notifications</Link>
-            <Link to="singlepost">Post</Link>
-            <Link to="/">Feed</Link>
+            <Link to="/">Feed </Link>
+            <Link to="friendlist">Friends </Link>
+            <Link to="friendsugestions">Sugestions </Link>
+            <Link to="notifications">Notifications </Link>
+            <Link to="singlepost">Post </Link>
           </>
         ) : (
           <>

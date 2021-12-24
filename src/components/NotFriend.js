@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
-import { Card, Button, Form, Link } from "react-bootstrap";
+import { Card, Button, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { SendPlus, XCircle } from "react-bootstrap-icons";
 
@@ -8,47 +9,47 @@ import { UserContext } from "../contexts/UserContext";
 function NotFriend(props) {
   const { user } = useContext(UserContext);
 
-   // MUST BE EDITED!!!________________________________________________________
+  // MUST BE EDITED!!!________________________________________________________
 
-  const handleFriendDelete = (event) => {
+  const handleSendFriendRequest = (event) => {
     event.preventDefault();
-    
-    
+
     var targetUserId = props.item.user._id; // DOES IT WORK??
     const token = localStorage.getItem("token");
 
-    
     axios
-      .delete(`/api/users/${targetUserId}/delete-friend`, {
-        userId: user._id, //current user
-      },{
-        headers: { Authorization: "Bearer " + token },
-      })
+      .post(
+        `/api/users/${targetUserId}/send-request`,
+        {
+          userId: user._id, //current user
+        },
+        {
+          headers: { Authorization: "Bearer " + token },
+        }
+      )
       .then((res) => {
-        console.log(res);
-        props.getFriendsData()
+        props.getSuggestionsData();
       })
       .catch((err) => console.log(err));
   };
-
+  console.log(props.item);
   return (
     <Card>
-  <Card.Body>
-    <Link to="UserProfile" state={{ userId: props.item.user._id }}> {/*CHECK IF IT WORKS */}
-    {props.item.user.firstName} {props.item.user.lastName}
-    </Link>
-  <Button
-        variant="danger"
-        onClick={handleFriendDelete}
-        className="float-end"
-      >
-        <TrashFill />
-      </Button>
-   </Card.Body>
-</Card>
-  )
+      <Card.Body>
+        <Link to="/UserProfile" state={{ targetUser: props.item }}>
+          {/*CHECK IF IT WORKS */}
+          {props.item.firstname} {props.item.lastname}
+        </Link>
+        <Button
+          variant="danger"
+          onClick={handleSendFriendRequest}
+          className="float-end"
+        >
+          <SendPlus />
+        </Button>
+      </Card.Body>
+    </Card>
+  );
 }
 
 export default NotFriend;
-
-

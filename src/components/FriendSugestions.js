@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
-import LoadingModal from "./LoadingModal"
+import LoadingModal from "./LoadingModal";
 import { UserContext } from "../contexts/UserContext";
-import NotFriend from "./NotFriend"
+import NotFriend from "./NotFriend";
 
 function FriendSuggestions() {
   const [loading, setLoading] = useState(false);
@@ -15,17 +15,14 @@ function FriendSuggestions() {
 
   const getSuggestionsData = async () => {
     setLoading(true);
-    const userId = user._id
+    const userId = user._id;
     const token = localStorage.getItem("token");
     axios
-      .post(
-        `/api/users/${userId}/notfriends`,
-        {
-          headers: { Authorization: "Bearer " + token },
-        }
-      )
+      .get(`/api/users/${userId}/notfriends`, {
+        headers: { Authorization: "Bearer " + token },
+      })
       .then((response) => {
-        setSuggestionsList(response.data, console.log(response.data));
+        setSuggestionsList(response.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -33,11 +30,10 @@ function FriendSuggestions() {
       });
   };
 
-
-
   return (
     <>
       {loading && <LoadingModal />}
+      <h1>Friend Suggestions</h1>
       {suggestionsList && (
         <ul style={{ padding: 0 }}>
           {suggestionsList.notfriends.map((item, index) => {
@@ -46,7 +42,11 @@ function FriendSuggestions() {
                 key={index}
                 className="d-flex flex-direction-column justify-content-center"
               >
-                <NotFriend getSuggestionsData={getSuggestionsData} item={item} index={index} />
+                <NotFriend
+                  getSuggestionsData={getSuggestionsData}
+                  item={item}
+                  index={index}
+                />
               </li>
             );
           })}

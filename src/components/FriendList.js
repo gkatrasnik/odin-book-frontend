@@ -1,6 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
-import LoadingModal from "./LoadingModal"
+import LoadingModal from "./LoadingModal";
 import { UserContext } from "../contexts/UserContext";
 import Friend from "./Friend";
 
@@ -15,17 +15,14 @@ function FriendList() {
 
   const getFriendsData = async () => {
     setLoading(true);
-    const userId = user._id
+    const userId = user._id;
     const token = localStorage.getItem("token");
     axios
-      .post(
-        `/api/users/${userId}/friends`,
-        {
-          headers: { Authorization: "Bearer " + token },
-        }
-      )
+      .get(`/api/users/${userId}/friends`, {
+        headers: { Authorization: "Bearer " + token },
+      })
       .then((response) => {
-        setFriendsList(response.data, console.log(response.data));
+        setFriendsList(response.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -33,11 +30,10 @@ function FriendList() {
       });
   };
 
-
-
   return (
     <>
       {loading && <LoadingModal />}
+      <h1>Friends</h1>
       {friendsList && (
         <ul style={{ padding: 0 }}>
           {friendsList.friends.map((item, index) => {
@@ -46,7 +42,11 @@ function FriendList() {
                 key={index}
                 className="d-flex flex-direction-column justify-content-center"
               >
-                <Friend getFriendsData={getFriendsData} item={item} index={index} />
+                <Friend
+                  getFriendsData={getFriendsData}
+                  item={item}
+                  index={index}
+                />
               </li>
             );
           })}

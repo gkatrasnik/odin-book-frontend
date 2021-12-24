@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, Button } from "react-bootstrap";
 import axios from "axios";
 import { Trash, TrashFill } from "react-bootstrap-icons";
+import { UserContext } from "../contexts/UserContext";
 
 function Comment(props) {
+  const { user } = useContext(UserContext);
+
   const handleCommentDelete = (event) => {
     event.preventDefault();
 
@@ -11,9 +14,15 @@ function Comment(props) {
     var commentId = props.comment._id;
     const token = localStorage.getItem("token");
     axios
-      .delete(`/api/posts/${postId}/comments/${commentId}`, {
-        headers: { Authorization: "Bearer " + token },
-      })
+      .delete(
+        `/api/posts/${postId}/comments/${commentId}`,
+        {
+          userId: user._id,
+        },
+        {
+          headers: { Authorization: "Bearer " + token },
+        }
+      )
       .then((res) => {
         props.getPostsData();
       })
