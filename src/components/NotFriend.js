@@ -1,14 +1,14 @@
-
 import React, { useState, useContext } from "react";
 import { Card, Button, Form, Link } from "react-bootstrap";
 import axios from "axios";
-import { TrashFill } from "react-bootstrap-icons";
+import { SendPlus, XCircle } from "react-bootstrap-icons";
+
 import { UserContext } from "../contexts/UserContext";
 
-function Friend(props) {
+function NotFriend(props) {
   const { user } = useContext(UserContext);
 
-   
+   // MUST BE EDITED!!!________________________________________________________
 
   const handleFriendDelete = (event) => {
     event.preventDefault();
@@ -49,6 +49,6 @@ function Friend(props) {
   )
 }
 
-export default Friend;
+export default NotFriend;
 
 

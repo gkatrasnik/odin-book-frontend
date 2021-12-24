@@ -1,5 +1,8 @@
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import LoadingModal from "./LoadingModal"
+import { UserContext } from "../contexts/UserContext";
+import Friend from "./Friend";
 
 function FriendList() {
   const [loading, setLoading] = useState(false);
@@ -43,7 +46,7 @@ function FriendList() {
                 key={index}
                 className="d-flex flex-direction-column justify-content-center"
               >
-                <Post getFriendsData={getFriendsData} item={item} index={index} />
+                <Friend getFriendsData={getFriendsData} item={item} index={index} />
               </li>
             );
           })}
