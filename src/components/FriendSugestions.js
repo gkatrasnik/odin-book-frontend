@@ -8,9 +8,11 @@ function FriendSuggestions() {
   const [loading, setLoading] = useState(false);
   const { user } = useContext(UserContext);
   const [suggestionsList, setSuggestionsList] = useState();
+  const [sentReqestsList, setSentRequestsList] = useState([]);
 
   useEffect(() => {
     getSuggestionsData();
+    getSentRequestsData();
   }, []);
 
   const getSuggestionsData = async () => {
@@ -23,6 +25,30 @@ function FriendSuggestions() {
       })
       .then((response) => {
         setSuggestionsList(response.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
+  };
+
+  const getSentRequestsData = () => {
+    setLoading(true);
+
+    const userId = user._id;
+    const token = localStorage.getItem("token");
+
+    axios
+      .get(
+        `/api/users/${userId}/notifications`,
+
+        {
+          headers: { Authorization: "Bearer " + token },
+        }
+      )
+      .then((response) => {
+        setSentRequestsList(response.data.user.sent_friend_requests);
+        console.log("sent requests ", response.data.user.sent_friend_requests);
         setLoading(false);
       })
       .catch((err) => {
@@ -44,6 +70,8 @@ function FriendSuggestions() {
               >
                 <NotFriend
                   getSuggestionsData={getSuggestionsData}
+                  getSentRequestsData={getSentRequestsData}
+                  sentReqestsList={sentReqestsList}
                   item={item}
                   index={index}
                 />

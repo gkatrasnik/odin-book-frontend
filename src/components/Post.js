@@ -16,7 +16,6 @@ function Post(props) {
   const [commentContent, setCommentContent] = useState("");
 
   let comments = props.item.comments;
-  console.log(props.item);
   useEffect(() => {
     if (props.item.user._id === user._id) {
       setMyPost(true);
