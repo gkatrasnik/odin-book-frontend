@@ -12,7 +12,6 @@ import { UserProvider } from "./contexts/UserContext";
 import FriendList from "./components/FriendList";
 import FriendSugestions from "./components/FriendSugestions";
 import Notifications from "./components/Notifications";
-import SinglePost from "./components/SinglePost";
 import UserProfile from "./components/UserProfile";
 
 function App() {
@@ -36,10 +35,6 @@ function App() {
                 path="/friendsugestions"
                 element={<FriendSugestions />}
               />
-            </Route>
-
-            <Route exact path="/singlepost" element={<PrivateRoute />}>
-              <Route exact path="/singlepost" element={<SinglePost />} />
             </Route>
 
             <Route exact path="/notifications" element={<PrivateRoute />}>

@@ -4,6 +4,7 @@ import axios from "axios";
 import { UserContext } from "../contexts/UserContext";
 import LoadingModal from "./LoadingModal";
 import Post from "./Post";
+import AddPost from "./AddPost";
 
 function Feed() {
   const [loading, setLoading] = useState(false);
@@ -42,6 +43,7 @@ function Feed() {
   return (
     <>
       {loading && <LoadingModal />}
+      <AddPost getPostsData={getPostsData} />
       {postsList && (
         <ul style={{ padding: 0 }}>
           {postsList.posts.map((item, index) => {
