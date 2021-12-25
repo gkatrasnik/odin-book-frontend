@@ -16,7 +16,7 @@ function Friend(props) {
     const token = localStorage.getItem("token");
 
     axios
-      .delete(
+      .post(
         `/api/users/${targetUserId}/delete-friend`,
         {
           userId: user._id, //current user
@@ -35,8 +35,6 @@ function Friend(props) {
     <Card>
       <Card.Body>
         <Link to="/UserProfile" state={{ targetUser: props.item }}>
-          {" "}
-          {/*CHECK IF IT WORKS */}
           {props.item.firstname} {props.item.lastname}
         </Link>
         <Button

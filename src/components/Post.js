@@ -12,7 +12,6 @@ function Post(props) {
   const [commentContent, setCommentContent] = useState("");
 
   let comments = props.item.comments;
-  console.log(comments);
 
   const handleCommentAdd = (event) => {
     event.preventDefault();
@@ -55,11 +54,10 @@ function Post(props) {
 
     //handle post delete (it deletes its comments too)
     axios
-      .delete(`/api/posts/${postId}`, {
+      .post(`/api/posts/${postId}/delete`, {
         headers: { Authorization: "Bearer " + token },
       })
       .then((res) => {
-        console.log(res);
         props.getPostsData();
       })
       .catch((err) => console.log(err));
@@ -90,6 +88,7 @@ function Post(props) {
           return (
             <Comment
               getPostsData={props.getPostsData}
+              postId={props.item._id}
               comment={comment}
               key={index}
             />

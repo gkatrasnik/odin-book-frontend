@@ -9,13 +9,12 @@ function Comment(props) {
 
   const handleCommentDelete = (event) => {
     event.preventDefault();
-
-    var postId = props.comment.postId;
+    var postId = props.postId;
     var commentId = props.comment._id;
     const token = localStorage.getItem("token");
     axios
-      .delete(
-        `/api/posts/${postId}/comments/${commentId}`,
+      .post(
+        `/api/posts/${postId}/comments/${commentId}/delete`,
         {
           userId: user._id,
         },

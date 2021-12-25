@@ -32,12 +32,10 @@ function NotFriend(props) {
       })
       .catch((err) => console.log(err));
   };
-  console.log(props.item);
   return (
     <Card>
       <Card.Body>
         <Link to="/UserProfile" state={{ targetUser: props.item }}>
-          {/*CHECK IF IT WORKS */}
           {props.item.firstname} {props.item.lastname}
         </Link>
         <Button

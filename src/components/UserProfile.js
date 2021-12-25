@@ -25,7 +25,6 @@ function UserProfile() {
       })
       .then((response) => {
         setPostsList(response.data);
-        console.log(response.data);
         setLoading(false);
       })
       .catch((err) => {

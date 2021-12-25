@@ -5,7 +5,6 @@ import { UserContext } from "../contexts/UserContext";
 import LoadingModal from "./LoadingModal";
 import Post from "./Post";
 
-
 function Feed() {
   const [loading, setLoading] = useState(false);
 
@@ -32,7 +31,7 @@ function Feed() {
         }
       )
       .then((response) => {
-        setPostsList(response.data, console.log(response.data));
+        setPostsList(response.data);
         setLoading(false);
       })
       .catch((err) => {

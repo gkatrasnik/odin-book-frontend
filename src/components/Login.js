@@ -26,10 +26,8 @@ function Login(props) {
       })
       .then(
         (response) => {
-          console.log(response);
           login(response.data.user);
           localStorage.setItem("token", response.data.token);
-          console.log(response.data.user, response.data.token);
 
           setLoading(false);
           navigate("/");
