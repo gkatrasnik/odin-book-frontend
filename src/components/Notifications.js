@@ -2,9 +2,9 @@ import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import LoadingModal from "./LoadingModal";
 import axios from "axios";
-import { Button } from "react-bootstrap";
+import Notification from "./Notification";
 
-function Notifications() {
+function Notifications(props) {
   const [loading, setLoading] = useState(false);
   const { user } = useContext(UserContext);
   const [notificationsList, setNotificationsList] = useState();
@@ -40,18 +40,21 @@ function Notifications() {
       });
   };
 
-  const readNotification = () => {};
   return (
     <>
       {loading && <LoadingModal />}
-      {notificationsList.map((item, index) => {
-        return (
-          <>
-            <p>notification {item.text}</p>{" "}
-            <Button onClick={readNotification}>Mark read</Button>
-          </>
-        );
-      })}
+      {notificationsList &&
+        notificationsList.map((item, index) => {
+          return (
+            <>
+              <Notification
+                key={index}
+                getNotificationsData={getNotificationsData}
+                item={item}
+              />
+            </>
+          );
+        })}
     </>
   );
 }
