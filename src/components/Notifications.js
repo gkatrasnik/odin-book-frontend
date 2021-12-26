@@ -29,8 +29,6 @@ function Notifications(props) {
       )
       .then((response) => {
         setNotificationsList(response.data.user.notifications);
-        console.log(response.data.user.notifications);
-        console.log(response.data.user.recieved_friend_requests);
         setLoading(false);
       })
       .catch((err) => {

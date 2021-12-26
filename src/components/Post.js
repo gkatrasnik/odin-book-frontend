@@ -2,18 +2,20 @@ import React, { useState, useContext, useEffect } from "react";
 import { Card, Button, Form } from "react-bootstrap";
 import Comment from "./Comment";
 import axios from "axios";
-import { TrashFill } from "react-bootstrap-icons";
+import { TrashFill, Heart, HeartFill } from "react-bootstrap-icons";
 import { UserContext } from "../contexts/UserContext";
 import LoadingModal from "./LoadingModal";
 
 function Post(props) {
   const [myPost, setMyPost] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [postLiked, setPostLiked] = useState();
 
   const { user } = useContext(UserContext);
 
   const [showCommentForm, setShowCommentForm] = useState(false);
   const [commentContent, setCommentContent] = useState("");
+  const [postLikesCount, setPostLikesCount] = useState(); // length od likes array
 
   let comments = props.item.comments;
   useEffect(() => {
@@ -21,6 +23,24 @@ function Post(props) {
       setMyPost(true);
     }
   }, []);
+
+  useEffect(() => {
+    getLikes();
+  }, [props.item.likes]);
+
+  const getLikes = () => {
+    let likesUsers = [];
+    props.item.likes.forEach((element) => likesUsers.push(element._id));
+    setPostLikesCount(likesUsers.length);
+    //like or unlike post
+    if (likesUsers.includes(user._id)) {
+      setPostLiked(true);
+      console.log("liked");
+    } else {
+      setPostLiked(false);
+      console.log("NOT liked");
+    }
+  };
 
   const handleCommentAdd = (event) => {
     setLoading(true);
@@ -63,7 +83,7 @@ function Post(props) {
     setLoading(true);
 
     event.preventDefault();
-    //handle post delete
+
     var postId = props.item._id;
     const token = localStorage.getItem("token");
 
@@ -84,6 +104,32 @@ function Post(props) {
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
+      });
+  };
+
+  const likePost = () => {
+    setLoading(true);
+
+    const postId = props.item._id;
+    const token = localStorage.getItem("token");
+
+    axios
+      .post(
+        `/api/posts/${postId}/like`,
+        {
+          userId: user._id,
+        },
+        {
+          headers: { Authorization: "Bearer " + token },
+        }
+      )
+      .then((response) => {
+        props.getPostsData();
+        getLikes().then(setLoading(false));
+      })
+
+      .catch((err) => {
         setLoading(false);
       });
   };
@@ -111,6 +157,14 @@ function Post(props) {
           <Card.Text>{props.item.text}</Card.Text>
 
           <br />
+          <Card.Text>
+            Likes: {postLikesCount}
+            {postLiked ? (
+              <HeartFill onClick={likePost} />
+            ) : (
+              <Heart onClick={likePost} />
+            )}
+          </Card.Text>
           <Card.Text>Comments:</Card.Text>
 
           {comments.map((comment, index) => {
