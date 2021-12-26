@@ -52,7 +52,7 @@ function AddPost(props) {
         onSubmit={handlePostAdd}
         style={{ width: "80%", maxWidth: "32rem", margin: "auto" }}
       >
-        <h1>Add new post</h1>
+        <h1 className="center">Add new post</h1>
 
         <Form.Group className="mb-3" controlId="content">
           <Form.Control

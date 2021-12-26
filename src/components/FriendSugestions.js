@@ -60,7 +60,7 @@ function FriendSuggestions() {
   return (
     <>
       {loading && <LoadingModal />}
-      <h1>Friend Suggestions</h1>
+      <h1 className="center">Friend Suggestions</h1>
       {suggestionsList && (
         <ul style={{ padding: 0 }}>
           {suggestionsList.notfriends.map((item, index) => {

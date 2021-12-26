@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react";
+import "../App.css";
 
 import axios from "axios";
 import { UserContext } from "../contexts/UserContext";
@@ -44,6 +45,7 @@ function Feed() {
     <>
       {loading && <LoadingModal />}
       <AddPost getPostsData={getPostsData} />
+      <h1 className="center">Timeline</h1>
       {postsList && (
         <ul style={{ padding: 0 }}>
           {postsList.posts.map((item, index) => {

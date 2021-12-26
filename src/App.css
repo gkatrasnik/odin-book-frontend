@@ -10,3 +10,7 @@
   height: 4rem;
   z-index: 10000;
 }
+
+.center {
+  text-align: center;
+}

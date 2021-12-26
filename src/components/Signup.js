@@ -50,7 +50,7 @@ function Signup() {
   return (
     <>
       {loading && <LoadingModal />}
-      <h1>Sign up</h1>
+      <h1 className="center">Sign up</h1>
       <Form
         style={{ width: "80%", maxWidth: "32rem", margin: "auto" }}
         onSubmit={signupHandler}

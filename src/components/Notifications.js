@@ -39,7 +39,7 @@ function Notifications(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <h1>Notifications</h1>
+      <h1 className="center">Notifications</h1>
 
       {notificationsList &&
         notificationsList.map((item, index) => {

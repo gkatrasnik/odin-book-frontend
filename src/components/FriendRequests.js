@@ -41,7 +41,7 @@ function FriendRequests(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <h1>Friend Requests</h1>
+      <h1 className="center">Friend Requests</h1>
 
       {friendRequestsList &&
         friendRequestsList.map((item, index) => {

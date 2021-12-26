@@ -44,7 +44,7 @@ function Login(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <h1>Log in</h1>
+      <h1 className="center">Log in</h1>
       <Form
         onSubmit={loginHandler}
         style={{ width: "80%", maxWidth: "32rem", margin: "auto" }}
