@@ -13,6 +13,7 @@ import FriendList from "./components/FriendList";
 import FriendSugestions from "./components/FriendSugestions";
 import Notifications from "./components/Notifications";
 import UserProfile from "./components/UserProfile";
+import FriendRequests from "./components/FriendRequests";
 
 function App() {
   return (
@@ -39,6 +40,14 @@ function App() {
 
             <Route exact path="/notifications" element={<PrivateRoute />}>
               <Route exact path="/notifications" element={<Notifications />} />
+            </Route>
+
+            <Route exact path="/friendrequests" element={<PrivateRoute />}>
+              <Route
+                exact
+                path="/friendrequests"
+                element={<FriendRequests />}
+              />
             </Route>
 
             <Route exact path="/userprofile" element={<PrivateRoute />}>

@@ -25,6 +25,7 @@ function Navigation() {
             <Link to="friendlist">Friends </Link>
             <Link to="friendsugestions">Sugestions </Link>
             <Link to="notifications">Notifications </Link>
+            <Link to="friendrequests">Friend Requests </Link>
           </>
         ) : (
           <>

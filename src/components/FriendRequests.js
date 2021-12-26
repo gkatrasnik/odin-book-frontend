@@ -2,18 +2,18 @@ import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import LoadingModal from "./LoadingModal";
 import axios from "axios";
-import Notification from "./Notification";
+import FriendRequest from "./FriendRequest";
 
-function Notifications(props) {
+function FriendRequests(props) {
   const [loading, setLoading] = useState(false);
   const { user } = useContext(UserContext);
-  const [notificationsList, setNotificationsList] = useState();
+  const [friendRequestsList, setFriendRequestsList] = useState();
 
   useEffect(() => {
-    getNotificationsData();
+    getFriendRequestsData();
   }, []);
 
-  const getNotificationsData = async () => {
+  const getFriendRequestsData = async () => {
     setLoading(true);
 
     const userId = user._id;
@@ -28,8 +28,8 @@ function Notifications(props) {
         }
       )
       .then((response) => {
-        setNotificationsList(response.data.user.notifications);
-        console.log(response.data.user.notifications);
+        setFriendRequestsList(response.data.user.recieved_friend_requests);
+
         console.log(response.data.user.recieved_friend_requests);
         setLoading(false);
       })
@@ -41,15 +41,15 @@ function Notifications(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <h1>Notifications</h1>
+      <h1>Friend Requests</h1>
 
-      {notificationsList &&
-        notificationsList.map((item, index) => {
+      {friendRequestsList &&
+        friendRequestsList.map((item, index) => {
           return (
             <>
-              <Notification
+              <FriendRequest
                 key={index}
-                getNotificationsData={getNotificationsData}
+                getFriendRequestsData={getFriendRequestsData}
                 item={item}
               />
             </>
@@ -59,4 +59,4 @@ function Notifications(props) {
   );
 }
 
-export default Notifications;
+export default FriendRequests;
