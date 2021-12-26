@@ -35,10 +35,8 @@ function Post(props) {
     //like or unlike post
     if (likesUsers.includes(user._id)) {
       setPostLiked(true);
-      console.log("liked");
     } else {
       setPostLiked(false);
-      console.log("NOT liked");
     }
   };
 

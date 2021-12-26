@@ -14,6 +14,25 @@ function NotFriend(props) {
 
   //check if the request to this user was already sent
 
+  useEffect(() => {
+    getSentRequests();
+  }, [props.sentReqestsList]);
+
+  const getSentRequests = () => {
+    let sentRequests = [];
+    props.sentReqestsList.forEach((element) => sentRequests.push(element._id));
+    console.log(sentRequests);
+
+    //like or unlike post
+    if (sentRequests.includes(props.item._id)) {
+      setRequestSent(true);
+      console.log("sent request");
+    } else {
+      setRequestSent(false);
+      console.log("NOT sent request");
+    }
+  };
+
   const handleSendFriendRequest = (event) => {
     setLoading(true);
     event.preventDefault();
@@ -32,9 +51,10 @@ function NotFriend(props) {
         }
       )
       .then((res) => {
-        props.getSuggestionsData();
-        setLoading(false);
-        setRequestSent(true);
+        props
+          .getSentRequests()
+
+          .then(setLoading(false));
       })
       .catch((err) => {
         console.log(err);
@@ -60,9 +80,10 @@ function NotFriend(props) {
         }
       )
       .then((res) => {
-        props.getSuggestionsData();
-        setLoading(false);
-        setRequestSent(false);
+        props
+          .getSentRequests()
+
+          .then(setLoading(false));
       })
       .catch((err) => {
         console.log(err);
