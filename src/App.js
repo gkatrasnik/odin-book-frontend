@@ -14,6 +14,7 @@ import FriendSugestions from "./components/FriendSugestions";
 import Notifications from "./components/Notifications";
 import UserProfile from "./components/UserProfile";
 import FriendRequests from "./components/FriendRequests";
+import SinglePost from "./components/SinglePost";
 
 function App() {
   return (
@@ -52,6 +53,10 @@ function App() {
 
             <Route exact path="/userprofile" element={<PrivateRoute />}>
               <Route exact path="/userprofile" element={<UserProfile />} />
+            </Route>
+
+            <Route exact path="/singlepost" element={<PrivateRoute />}>
+              <Route exact path="/singlepost" element={<SinglePost />} />
             </Route>
 
             <Route exact path="/signup" element={<Signup />} />

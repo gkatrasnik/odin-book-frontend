@@ -6,8 +6,9 @@ import { TrashFill, Heart, HeartFill } from "react-bootstrap-icons";
 import { UserContext } from "../contexts/UserContext";
 import LoadingModal from "./LoadingModal";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-function Post(props) {
+function SinglePost(props) {
   const [myPost, setMyPost] = useState(false);
   const [loading, setLoading] = useState(false);
   const [postLiked, setPostLiked] = useState();
@@ -18,20 +19,23 @@ function Post(props) {
   const [commentContent, setCommentContent] = useState("");
   const [postLikesCount, setPostLikesCount] = useState(); // length od likes array
 
-  let comments = props.item.comments;
+  const location = useLocation();
+  const { item, getPostsData } = location.state; //post(item) and getPostsData passed from Link (friends/suggestions page)
+
+  let comments = item.comments;
   useEffect(() => {
-    if (props.item.user._id === user._id) {
+    if (item.user._id === user._id) {
       setMyPost(true);
     }
   }, []);
 
   useEffect(() => {
     getLikes();
-  }, [props.item.likes]);
+  }, [item.likes]);
 
   const getLikes = () => {
     let likesUsers = [];
-    props.item.likes.forEach((element) => likesUsers.push(element._id));
+    item.likes.forEach((element) => likesUsers.push(element._id));
     setPostLikesCount(likesUsers.length);
     //like or unlike post
     if (likesUsers.includes(user._id)) {
@@ -52,7 +56,7 @@ function Post(props) {
 
     const token = localStorage.getItem("token");
 
-    var postId = props.item._id;
+    var postId = item._id;
     axios
       .post(
         `/api/posts/${postId}/comments/new-comment`,
@@ -68,7 +72,7 @@ function Post(props) {
         (response) => {
           setCommentContent("");
           setShowCommentForm(!showCommentForm);
-          props.getPostsData();
+          getPostsData();
           setLoading(false);
         },
         (error) => {
@@ -83,7 +87,7 @@ function Post(props) {
 
     event.preventDefault();
 
-    var postId = props.item._id;
+    var postId = item._id;
     const token = localStorage.getItem("token");
 
     //handle post delete (it deletes its comments too)
@@ -98,7 +102,7 @@ function Post(props) {
         }
       )
       .then((res) => {
-        props.getPostsData();
+        getPostsData();
         setLoading(false);
       })
       .catch((err) => {
@@ -110,7 +114,7 @@ function Post(props) {
   const likePost = () => {
     setLoading(true);
 
-    const postId = props.item._id;
+    const postId = item._id;
     const token = localStorage.getItem("token");
 
     axios
@@ -124,7 +128,7 @@ function Post(props) {
         }
       )
       .then((response) => {
-        props.getPostsData();
+        getPostsData();
         getLikes().then(setLoading(false));
       })
 
@@ -139,7 +143,7 @@ function Post(props) {
       <Card style={{ width: "80%", maxWidth: "32rem", margin: "20px" }}>
         <Card.Body>
           <Card.Title className="text-center">
-            {props.item.title}
+            {item.title}
             {myPost && (
               <Button
                 variant="danger"
@@ -151,14 +155,17 @@ function Post(props) {
             )}
           </Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
-            <Link to="/userprofile" state={{ targetUser: props.item.user }}>
-              {props.item.user.firstname} {props.item.user.lastname}
+            <Link to="/userprofile" state={{ targetUser: item.user }}>
+              {item.user.firstname} {item.user.lastname}{" "}
             </Link>
-            <Link to="/singlepost" state={{ item: props.item }}>
-              {props.item.timestamp}
+            <Link
+              to="/singlepost"
+              state={{ item: item, getPostsData: getPostsData }}
+            >
+              {item.timestamp}
             </Link>
           </Card.Subtitle>
-          <Card.Text>{props.item.text}</Card.Text>
+          <Card.Text>{item.text}</Card.Text>
 
           <br />
           <Card.Text>
@@ -174,8 +181,8 @@ function Post(props) {
           {comments.map((comment, index) => {
             return (
               <Comment
-                getPostsData={props.getPostsData}
-                postId={props.item._id}
+                getPostsData={getPostsData}
+                postId={item._id}
                 comment={comment}
                 key={index}
               />
@@ -214,4 +221,4 @@ function Post(props) {
   );
 }
 
-export default Post;
+export default SinglePost;
