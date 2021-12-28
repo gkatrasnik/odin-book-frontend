@@ -1,4 +1,4 @@
-//url
+https://sad-volhard-81c486.netlify.app/
 
 # odin-book-frontend
 
