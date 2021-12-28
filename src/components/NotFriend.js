@@ -89,9 +89,7 @@ function NotFriend(props) {
   return (
     <Card>
       <Card.Body>
-        <Link to="/UserProfile" state={{ targetUser: props.item }}>
-          {props.item.firstname} {props.item.lastname}
-        </Link>
+        {props.item.firstname} {props.item.lastname}
         {requestSent ? (
           <Button
             variant="danger"

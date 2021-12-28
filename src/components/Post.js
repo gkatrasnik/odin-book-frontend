@@ -5,6 +5,7 @@ import axios from "axios";
 import { TrashFill, Heart, HeartFill } from "react-bootstrap-icons";
 import { UserContext } from "../contexts/UserContext";
 import LoadingModal from "./LoadingModal";
+import { Link } from "react-router-dom";
 
 function Post(props) {
   const [myPost, setMyPost] = useState(false);
@@ -150,7 +151,9 @@ function Post(props) {
             )}
           </Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
-            Author: {props.item.user.firstname} {props.item.user.lastname}
+            <Link to="/UserProfile" state={{ targetUser: props.item.user }}>
+              {props.item.user.firstname} {props.item.user.lastname}
+            </Link>
           </Card.Subtitle>
           <Card.Text>{props.item.text}</Card.Text>
 

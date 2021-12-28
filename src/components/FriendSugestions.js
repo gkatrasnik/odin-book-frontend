@@ -48,8 +48,6 @@ function FriendSuggestions() {
       )
       .then((response) => {
         setSentRequestsList(response.data.user.sent_friend_requests);
-
-        console.log("sent requests ", response.data.user.sent_friend_requests);
         setLoading(false);
       })
       .catch((err) => {

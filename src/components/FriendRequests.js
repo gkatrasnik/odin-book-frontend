@@ -29,8 +29,6 @@ function FriendRequests(props) {
       )
       .then((response) => {
         setFriendRequestsList(response.data.user.recieved_friend_requests);
-
-        console.log(response.data.user.recieved_friend_requests);
         setLoading(false);
       })
       .catch((err) => {
