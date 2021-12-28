@@ -32,13 +32,14 @@ function Friend(props) {
   };
 
   return (
-    <Card>
+    <Card style={{ width: "80%", maxWidth: "32rem", margin: "20px" }}>
       <Card.Body>
         <Link to="/UserProfile" state={{ targetUser: props.item }}>
           {props.item.firstname} {props.item.lastname}
         </Link>
         <Button
-          variant="danger"
+          variant="secondary"
+          size="sm"
           onClick={handleFriendDelete}
           className="float-end"
         >

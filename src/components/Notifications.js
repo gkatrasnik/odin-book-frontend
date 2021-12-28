@@ -41,18 +41,24 @@ function Notifications(props) {
       {loading && <LoadingModal />}
       <h1 className="center">Notifications</h1>
 
-      {notificationsList &&
-        notificationsList.map((item, index) => {
-          return (
-            <>
-              <Notification
+      {notificationsList && (
+        <ul style={{ padding: 0 }}>
+          {notificationsList.map((item, index) => {
+            return (
+              <li
                 key={index}
-                getNotificationsData={getNotificationsData}
-                item={item}
-              />
-            </>
-          );
-        })}
+                className="d-flex flex-direction-column justify-content-center"
+              >
+                <Notification
+                  key={index}
+                  getNotificationsData={getNotificationsData}
+                  item={item}
+                />
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </>
   );
 }

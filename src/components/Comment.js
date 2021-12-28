@@ -54,6 +54,7 @@ function Comment(props) {
         {myComment && (
           <Button
             variant="danger"
+            size="sm"
             onClick={handleCommentDelete}
             className="float-end"
           >

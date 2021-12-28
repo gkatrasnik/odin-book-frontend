@@ -41,18 +41,24 @@ function FriendRequests(props) {
       {loading && <LoadingModal />}
       <h1 className="center">Friend Requests</h1>
 
-      {friendRequestsList &&
-        friendRequestsList.map((item, index) => {
-          return (
-            <>
-              <FriendRequest
+      {friendRequestsList && (
+        <ul style={{ padding: 0 }}>
+          {friendRequestsList.map((item, index) => {
+            return (
+              <li
                 key={index}
-                getFriendRequestsData={getFriendRequestsData}
-                item={item}
-              />
-            </>
-          );
-        })}
+                className="d-flex flex-direction-column justify-content-center"
+              >
+                <FriendRequest
+                  key={index}
+                  getFriendRequestsData={getFriendRequestsData}
+                  item={item}
+                />
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </>
   );
 }

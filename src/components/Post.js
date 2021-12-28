@@ -143,6 +143,7 @@ function Post(props) {
             {myPost && (
               <Button
                 variant="danger"
+                size="sm"
                 onClick={handlePostDelete}
                 className="float-end"
               >
@@ -168,6 +169,16 @@ function Post(props) {
             ) : (
               <Heart onClick={likePost} />
             )}
+            <Button
+              variant="primary"
+              size="sm"
+              className="float-end my-2"
+              onClick={() => {
+                setShowCommentForm(!showCommentForm);
+              }}
+            >
+              Comment
+            </Button>
           </Card.Text>
           <Card.Text>Comments:</Card.Text>
 
@@ -181,15 +192,7 @@ function Post(props) {
               />
             );
           })}
-          <Button
-            variant="primary"
-            className="float-end my-2"
-            onClick={() => {
-              setShowCommentForm(!showCommentForm);
-            }}
-          >
-            Comment
-          </Button>
+
           {showCommentForm && (
             <Form onSubmit={handleCommentAdd}>
               <Form.Group className="mb-3" controlId="content">

@@ -87,12 +87,13 @@ function NotFriend(props) {
   };
 
   return (
-    <Card>
+    <Card style={{ width: "80%", maxWidth: "32rem", margin: "20px" }}>
       <Card.Body>
         {props.item.firstname} {props.item.lastname}
         {requestSent ? (
           <Button
-            variant="danger"
+            variant="secondary"
+            size="sm"
             onClick={handleUnsendFriendRequest}
             className="float-end"
           >
@@ -100,7 +101,8 @@ function NotFriend(props) {
           </Button>
         ) : (
           <Button
-            variant="danger"
+            variant="primary"
+            size="sm"
             onClick={handleSendFriendRequest}
             className="float-end"
           >

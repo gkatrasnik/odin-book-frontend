@@ -67,15 +67,27 @@ function FriendRequest(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <Card.Text>
-        Friend request from {props.item.firstname} {props.item.lastname}
-        <Button variant="success" className="float-end" onClick={acceptRequest}>
-          Accept
-        </Button>
-        <Button variant="danger" className="float-end" onClick={denyRequest}>
-          Deny
-        </Button>
-      </Card.Text>
+      <Card style={{ width: "80%", maxWidth: "32rem", margin: "20px" }}>
+        <Card.Text>
+          Friend request from {props.item.firstname} {props.item.lastname}
+          <Button
+            variant="success"
+            className="float-end"
+            size="sm"
+            onClick={acceptRequest}
+          >
+            Accept
+          </Button>
+          <Button
+            variant="danger"
+            className="float-end"
+            size="sm"
+            onClick={denyRequest}
+          >
+            Deny
+          </Button>
+        </Card.Text>
+      </Card>
     </>
   );
 }

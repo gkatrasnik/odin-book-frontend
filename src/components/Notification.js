@@ -40,16 +40,18 @@ function Notification(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <Card.Text>
-        {props.item.text}
-        <Button
-          variant="danger"
-          onClick={readNotification}
-          className="float-end"
-        >
-          Read
-        </Button>
-      </Card.Text>
+      <Card style={{ width: "80%", maxWidth: "32rem", margin: "20px" }}>
+        <Card.Text>
+          {props.item.text}
+          <Button
+            variant="danger"
+            onClick={readNotification}
+            className="float-end"
+          >
+            Read
+          </Button>
+        </Card.Text>
+      </Card>
     </>
   );
 }
