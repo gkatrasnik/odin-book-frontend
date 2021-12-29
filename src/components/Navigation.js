@@ -13,16 +13,16 @@ function Navigation() {
           <h3>ODIN BOOK</h3>
         </Navbar.Brand>
       
-
-      <Nav className="me-auto">
-        
-        <Link to="/UserProfile" state={{ targetUser: user }} className="nav-link">
-          {user.firstname} {user.lastname}
-        </Link>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+      <Nav >     
       
         {user ? (
           <>
-          
+            <Link to="/UserProfile" state={{ targetUser: user }} className="nav-link">
+            {user.firstname} {user.lastname}
+            </Link>
+
             <Nav.Link onClick={logout} >Logout</Nav.Link>         
           
             <Link to="/" className="nav-link">Feed </Link>
@@ -46,6 +46,7 @@ function Navigation() {
           </>
         )}
       </Nav>
+      </Navbar.Collapse>
       </Container>
     </Navbar>
   );
