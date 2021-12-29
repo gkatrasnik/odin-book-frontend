@@ -1,4 +1,4 @@
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Card } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -50,6 +50,8 @@ function Signup() {
   return (
     <>
       {loading && <LoadingModal />}
+      <Card style={{ width: "80%", maxWidth: "32rem", margin: "auto" }}>
+      <Card.Body>
       <h1 className="center">Sign up</h1>
       <Form
         style={{ width: "80%", maxWidth: "32rem", margin: "auto" }}
@@ -107,10 +109,12 @@ function Signup() {
             }}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" className="mx-auto">
+        <Button variant="primary" type="submit" className="float-end">
           Sign up
         </Button>
       </Form>
+      </Card.Body>
+      </Card>
     </>
   );
 }

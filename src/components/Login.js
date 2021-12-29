@@ -44,6 +44,8 @@ function Login(props) {
   return (
     <>
       {loading && <LoadingModal />}
+      <Card style={{ width: "80%", maxWidth: "32rem", margin: "auto" }}>
+      <Card.Body>
       <h1 className="center">Log in</h1>
       <Form
         onSubmit={loginHandler}
@@ -71,10 +73,12 @@ function Login(props) {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" className="mx-auto">
+        <Button variant="primary" type="submit" className="float-end">
           Log in
         </Button>
       </Form>
+      </Card.Body>
+      </Card>
     </>
   );
 }
