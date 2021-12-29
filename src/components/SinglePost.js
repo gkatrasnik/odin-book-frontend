@@ -140,7 +140,7 @@ function SinglePost(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <Card style={{ width: "80%", maxWidth: "32rem", margin: "20px" }}>
+      <Card style={{ width: "80%", maxWidth: "32rem", margin: "auto" }}>
         <Card.Body>
           <Card.Title className="text-center">
             {item.title}
