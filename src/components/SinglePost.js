@@ -188,7 +188,7 @@ function SinglePost(props) {
 
 
 <ListGroup className="list-group-flush">
-  <ListGroup.Item variant="light">Comments: 
+  <ListGroup.Item className="bg-light">Comments: 
     <Button
             variant="primary"
             size="sm"

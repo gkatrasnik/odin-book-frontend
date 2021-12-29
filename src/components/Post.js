@@ -177,8 +177,8 @@ function Post(props) {
           
           </Card.Body>
           
-          <ListGroup className="list-group-flush">
-           <ListGroup.Item variant="light">Comments:
+       <ListGroup className="list-group-flush">
+           <ListGroup.Item className="bg-light">Comments:
              <Button
               variant="primary"
               size="sm"
@@ -208,8 +208,8 @@ function Post(props) {
                 Submit
               </Button>
             </Form>
-</ListGroup.Item>
-          )}
+        </ListGroup.Item>
+      )}
   
 
    
@@ -226,7 +226,7 @@ function Post(props) {
              </ListGroup.Item>
             );
           })}
- </ListGroup>
+      </ListGroup>
           
         
       </Card>
