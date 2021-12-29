@@ -63,7 +63,7 @@ function AddPost(props) {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="float-end">
           Add Post
         </Button>
       </Form>
