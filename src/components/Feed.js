@@ -12,7 +12,7 @@ function Feed() {
 
   const { user } = useContext(UserContext);
 
-  const [postsList, setPostsList] = useState();
+  const [postsList, setPostsList] = useState([]);
 
   useEffect(() => {
     getPostsData();
@@ -44,9 +44,12 @@ function Feed() {
   return (
     <>
       {loading && <LoadingModal />}
-      <AddPost getPostsData={getPostsData} className="d-flex flex-direction-column justify-content-center"/>
+      <AddPost
+        getPostsData={getPostsData}
+        className="d-flex flex-direction-column justify-content-center"
+      />
       <h1 className="center">Timeline</h1>
-      {postsList && (
+      {postsList.length > 0 ? (
         <ul style={{ padding: 0 }}>
           {postsList.posts.map((item, index) => {
             return (
@@ -59,6 +62,11 @@ function Feed() {
             );
           })}
         </ul>
+      ) : (
+        <div className="center">
+          <h2 className="text-muted">No posts...</h2>
+          <h5 className="text-muted">Add some friends to see their posts</h5>
+        </div>
       )}
     </>
   );

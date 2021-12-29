@@ -70,22 +70,24 @@ function FriendRequest(props) {
       <Card style={{ width: "80%", maxWidth: "32rem", margin: "20px" }}>
         <Card.Body>
           Friend request from {props.item.firstname} {props.item.lastname}
-          <Button
-            variant="success"
-            className="float-end"
-            size="sm"
-            onClick={acceptRequest}
-          >
-            Accept
-          </Button>
-          <Button
-            variant="danger"
-            className="float-end"
-            size="sm"
-            onClick={denyRequest}
-          >
-            Deny
-          </Button>
+          <div className="float-end">
+            <Button
+              variant="success"
+              className="mx-1"
+              size="sm"
+              onClick={acceptRequest}
+            >
+              Accept
+            </Button>
+            <Button
+              variant="danger"
+              className=" mx-1"
+              size="sm"
+              onClick={denyRequest}
+            >
+              Deny
+            </Button>
+          </div>
         </Card.Body>
       </Card>
     </>

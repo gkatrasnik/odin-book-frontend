@@ -137,30 +137,30 @@ function Post(props) {
     <>
       {loading && <LoadingModal />}
       <Card style={{ width: "80%", maxWidth: "32rem", margin: "20px" }}>
-        
-          
-            
-          
-          <Card.Header   className="mb-2">
-            <Link to="/userprofile" state={{ targetUser: props.item.user }}>
-              {props.item.user.firstname} {props.item.user.lastname}
-            </Link>
-            
-{myPost && (
-              <Button
-                variant="danger"
-                size="sm"
-                onClick={handlePostDelete}
-                className="float-end"
-              >
-                <TrashFill />
-              </Button>
-            )}
-            <Link to="/singlepost" state={{ item: props.item }} className="float-end mx-2">
-              {props.item.timestamp}
-            </Link>
-          </Card.Header>
-<Card.Body>
+        <Card.Header className="mb-2">
+          <Link to="/userprofile" state={{ targetUser: props.item.user }}>
+            {props.item.user.firstname} {props.item.user.lastname}
+          </Link>
+
+          {myPost && (
+            <Button
+              variant="danger"
+              size="sm"
+              onClick={handlePostDelete}
+              className="float-end"
+            >
+              <TrashFill />
+            </Button>
+          )}
+          <Link
+            to="/singlepost"
+            state={{ item: props.item }}
+            className="float-end mx-2"
+          >
+            {props.item.timestamp}
+          </Link>
+        </Card.Header>
+        <Card.Body>
           <Card.Text>{props.item.text}</Card.Text>
 
           <br />
@@ -171,15 +171,13 @@ function Post(props) {
             ) : (
               <Heart onClick={likePost} />
             )}
-            
           </Card.Text>
+        </Card.Body>
 
-          
-          </Card.Body>
-          
-       <ListGroup className="list-group-flush">
-           <ListGroup.Item className="bg-light">Comments:
-             <Button
+        <ListGroup className="list-group-flush">
+          <ListGroup.Item className="bg-light">
+            Comments:
+            <Button
               variant="primary"
               size="sm"
               className="float-end"
@@ -189,46 +187,45 @@ function Post(props) {
             >
               Comment
             </Button>
-             </ListGroup.Item>
-      {showCommentForm && (
-        <ListGroup.Item className="bg-light">
-            <Form onSubmit={handleCommentAdd} >
-              <Form.Group className="mb-3" controlId="content">
-                <Form.Label>Text:</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Type your comment"
-                  onChange={(e) => {
-                    setCommentContent(e.target.value);
-                  }}
-                />
-              </Form.Group>
+          </ListGroup.Item>
+          {showCommentForm && (
+            <ListGroup.Item className="bg-light">
+              <Form onSubmit={handleCommentAdd}>
+                <Form.Group className="mb-3" controlId="content">
+                  <Form.Label>Text:</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Type your comment"
+                    onChange={(e) => {
+                      setCommentContent(e.target.value);
+                    }}
+                  />
+                </Form.Group>
 
-              <Button variant="primary" size="sm" type="submit" className="float-end">
-                Submit
-              </Button>
-            </Form>
-        </ListGroup.Item>
-      )}
-  
+                <Button
+                  variant="primary"
+                  size="sm"
+                  type="submit"
+                  className="float-end"
+                >
+                  Submit
+                </Button>
+              </Form>
+            </ListGroup.Item>
+          )}
 
-   
- 
           {comments.map((comment, index) => {
-            return ( 
-              <ListGroup.Item className="bg-light">
-              <Comment
-                getPostsData={props.getPostsData}
-                postId={props.item._id}
-                comment={comment}
-                key={index}
-              />
-             </ListGroup.Item>
+            return (
+              <ListGroup.Item className="bg-light" key={index}>
+                <Comment
+                  getPostsData={props.getPostsData}
+                  postId={props.item._id}
+                  comment={comment}
+                />
+              </ListGroup.Item>
             );
           })}
-      </ListGroup>
-          
-        
+        </ListGroup>
       </Card>
     </>
   );

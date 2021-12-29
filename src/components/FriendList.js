@@ -7,7 +7,7 @@ import Friend from "./Friend";
 function FriendList() {
   const [loading, setLoading] = useState(false);
   const { user } = useContext(UserContext);
-  const [friendsList, setFriendsList] = useState();
+  const [friendsList, setFriendsList] = useState([]);
 
   useEffect(() => {
     getFriendsData();
@@ -34,7 +34,7 @@ function FriendList() {
     <>
       {loading && <LoadingModal />}
       <h1 className="center">Friends</h1>
-      {friendsList && (
+      {friendsList.length > 0 ? (
         <ul style={{ padding: 0 }}>
           {friendsList.friends.map((item, index) => {
             return (
@@ -51,6 +51,8 @@ function FriendList() {
             );
           })}
         </ul>
+      ) : (
+        <h2 className="center text-muted">No friends...</h2>
       )}
     </>
   );

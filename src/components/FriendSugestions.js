@@ -7,7 +7,7 @@ import NotFriend from "./NotFriend";
 function FriendSuggestions() {
   const [loading, setLoading] = useState(false);
   const { user } = useContext(UserContext);
-  const [suggestionsList, setSuggestionsList] = useState();
+  const [suggestionsList, setSuggestionsList] = useState([]);
   const [sentReqestsList, setSentRequestsList] = useState([]);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function FriendSuggestions() {
         headers: { Authorization: "Bearer " + token },
       })
       .then((response) => {
-        setSuggestionsList(response.data);
+        setSuggestionsList(response.data.notfriends);
         setLoading(false);
       })
       .catch((err) => {
@@ -59,9 +59,9 @@ function FriendSuggestions() {
     <>
       {loading && <LoadingModal />}
       <h1 className="center">Friend Suggestions</h1>
-      {suggestionsList && (
+      {suggestionsList.length > 0 ? (
         <ul style={{ padding: 0 }}>
-          {suggestionsList.notfriends.map((item, index) => {
+          {suggestionsList.map((item, index) => {
             return (
               <li
                 key={index}
@@ -78,6 +78,8 @@ function FriendSuggestions() {
             );
           })}
         </ul>
+      ) : (
+        <h2 className="center text-muted">No friend suggestions...</h2>
       )}
     </>
   );

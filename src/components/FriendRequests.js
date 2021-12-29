@@ -7,7 +7,7 @@ import FriendRequest from "./FriendRequest";
 function FriendRequests(props) {
   const [loading, setLoading] = useState(false);
   const { user } = useContext(UserContext);
-  const [friendRequestsList, setFriendRequestsList] = useState();
+  const [friendRequestsList, setFriendRequestsList] = useState([]);
 
   useEffect(() => {
     getFriendRequestsData();
@@ -41,7 +41,7 @@ function FriendRequests(props) {
       {loading && <LoadingModal />}
       <h1 className="center">Friend Requests</h1>
 
-      {friendRequestsList && (
+      {friendRequestsList.length > 0 ? (
         <ul style={{ padding: 0 }}>
           {friendRequestsList.map((item, index) => {
             return (
@@ -58,6 +58,8 @@ function FriendRequests(props) {
             );
           })}
         </ul>
+      ) : (
+        <h2 className="center text-muted">No friend requests...</h2>
       )}
     </>
   );

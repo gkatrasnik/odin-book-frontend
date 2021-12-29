@@ -7,7 +7,7 @@ import Notification from "./Notification";
 function Notifications(props) {
   const [loading, setLoading] = useState(false);
   const { user } = useContext(UserContext);
-  const [notificationsList, setNotificationsList] = useState();
+  const [notificationsList, setNotificationsList] = useState([]);
 
   useEffect(() => {
     getNotificationsData();
@@ -41,7 +41,7 @@ function Notifications(props) {
       {loading && <LoadingModal />}
       <h1 className="center">Notifications</h1>
 
-      {notificationsList && (
+      {notificationsList.length > 0 ? (
         <ul style={{ padding: 0 }}>
           {notificationsList.map((item, index) => {
             return (
@@ -58,6 +58,8 @@ function Notifications(props) {
             );
           })}
         </ul>
+      ) : (
+        <h2 className="center text-muted">No notifications...</h2>
       )}
     </>
   );
