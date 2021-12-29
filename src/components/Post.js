@@ -7,6 +7,7 @@ import { UserContext } from "../contexts/UserContext";
 import LoadingModal from "./LoadingModal";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import "moment/locale/en-gb";
 
 function Post(props) {
   const [myPost, setMyPost] = useState(false);
@@ -19,6 +20,7 @@ function Post(props) {
   const [commentContent, setCommentContent] = useState("");
   const [postLikesCount, setPostLikesCount] = useState(); // length od likes array
 
+  moment.locale("en-gb");
   let comments = props.item.comments;
   useEffect(() => {
     if (props.item.user._id === user._id) {

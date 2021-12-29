@@ -7,6 +7,8 @@ import { UserContext } from "../contexts/UserContext";
 import LoadingModal from "./LoadingModal";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import moment from "moment";
+import "moment/locale/en-gb";
 
 function SinglePost(props) {
   const [myPost, setMyPost] = useState(false);
@@ -141,35 +143,30 @@ function SinglePost(props) {
     <>
       {loading && <LoadingModal />}
       <Card style={{ width: "80%", maxWidth: "32rem", margin: "auto" }}>
-        
-          
-            
-           
-          
-          <Card.Header className="mb-2">
-            <Link to="/userprofile" state={{ targetUser: item.user }}>
-              {item.user.firstname} {item.user.lastname}
-            </Link>
-            
-           {myPost && (
-              <Button
-                variant="danger"
-                size="sm"
-                onClick={handlePostDelete}
-                className="float-end"
-              >
-                <TrashFill />
-              </Button>
-            )}
-            <Link
-              to="/singlepost"
-              state={{ item: item, getPostsData: getPostsData }} 
-              className="float-end mx-2"
+        <Card.Header className="mb-2">
+          <Link to="/userprofile" state={{ targetUser: item.user }}>
+            {item.user.firstname} {item.user.lastname}
+          </Link>
+
+          {myPost && (
+            <Button
+              variant="danger"
+              size="sm"
+              onClick={handlePostDelete}
+              className="float-end"
             >
-              {item.timestamp}
-            </Link>
-          </Card.Header>
-<Card.Body>
+              <TrashFill />
+            </Button>
+          )}
+          <Link
+            to="/singlepost"
+            state={{ item: item, getPostsData: getPostsData }}
+            className="float-end mx-2"
+          >
+            {moment(item.timestamp).format("lll")}
+          </Link>
+        </Card.Header>
+        <Card.Body>
           <Card.Text>{item.text}</Card.Text>
 
           <br />
@@ -181,62 +178,62 @@ function SinglePost(props) {
               <Heart onClick={likePost} />
             )}
           </Card.Text>
-         </Card.Body>
-         
-         
-        
+        </Card.Body>
 
-
-<ListGroup className="list-group-flush">
-  <ListGroup.Item className="bg-light">Comments: 
-    <Button
-            variant="primary"
-            size="sm"
-            className="float-end my-2"
-            onClick={() => {
-              setShowCommentForm(!showCommentForm);
-            }}
-          >
-            Comment
-          </Button>
-  </ListGroup.Item>
-  
-            {showCommentForm && (
-            <ListGroup.Item className="bg-light">
-            <Form onSubmit={handleCommentAdd} >
-              <Form.Group className="mb-3" controlId="content">
-                <Form.Label>Text:</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Type your comment"
-                  onChange={(e) => {
-                    setCommentContent(e.target.value);
-                  }}
-                />
-              </Form.Group>
-
-              <Button variant="primary" size="sm" type="submit" className="float-end">
-                Submit
-              </Button>
-            </Form>
+        <ListGroup className="list-group-flush">
+          <ListGroup.Item className="bg-light">
+            Comments:
+            <Button
+              variant="primary"
+              size="sm"
+              className="float-end my-2"
+              onClick={() => {
+                setShowCommentForm(!showCommentForm);
+              }}
+            >
+              Comment
+            </Button>
           </ListGroup.Item>
-          )} 
-            
-   
+
+          {showCommentForm && (
+            <ListGroup.Item className="bg-light">
+              <Form onSubmit={handleCommentAdd}>
+                <Form.Group className="mb-3" controlId="content">
+                  <Form.Label>Text:</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Type your comment"
+                    onChange={(e) => {
+                      setCommentContent(e.target.value);
+                    }}
+                  />
+                </Form.Group>
+
+                <Button
+                  variant="primary"
+                  size="sm"
+                  type="submit"
+                  className="float-end"
+                >
+                  Submit
+                </Button>
+              </Form>
+            </ListGroup.Item>
+          )}
 
           {comments.map((comment, index) => {
             return (
               <ListGroup.Item className="bg-light">
-              <Comment
-                getPostsData={getPostsData}
-                postId={item._id}
-                comment={comment}
-                key={index}
-              />
+                <Comment
+                  getPostsData={getPostsData}
+                  postId={item._id}
+                  comment={comment}
+                  key={index}
+                />
               </ListGroup.Item>
             );
           })}
-           </ListGroup>
+        </ListGroup>
       </Card>
     </>
   );
