@@ -142,7 +142,7 @@ function Post(props) {
             
           
           <Card.Header   className="mb-2">
-            <Link to="/userprofile" as="h5" state={{ targetUser: props.item.user }}>
+            <Link to="/userprofile" state={{ targetUser: props.item.user }}>
               {props.item.user.firstname} {props.item.user.lastname}
             </Link>
             
