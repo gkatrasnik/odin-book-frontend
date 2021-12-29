@@ -190,7 +190,8 @@ function Post(props) {
               Comment
             </Button>
              </ListGroup.Item>
-<ListGroup.Item >{showCommentForm && (
+      {showCommentForm && (
+        <ListGroup.Item >
             <Form onSubmit={handleCommentAdd} className="bg-secondary text-white">
               <Form.Group className="mb-3" controlId="content">
                 <Form.Label>Text:</Form.Label>
