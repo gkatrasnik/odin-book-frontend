@@ -137,7 +137,7 @@ function Post(props) {
     <>
       {loading && <LoadingModal />}
       <Card style={{ width: "80%", maxWidth: "32rem", margin: "20px" }}>
-        <Card.Body>
+        
           
             
           
@@ -159,7 +159,7 @@ function Post(props) {
               </Button>
             )}
           </Card.Header>
-
+<Card.Body>
           <Card.Text>{props.item.text}</Card.Text>
 
           <br />
