@@ -12,7 +12,7 @@ function Navigation() {
         <Navbar.Brand>
           <h3>ODIN BOOK</h3>
         </Navbar.Brand>
-      </Container>
+      
 
       <Nav className="me-auto">
         
@@ -46,6 +46,7 @@ function Navigation() {
           </>
         )}
       </Nav>
+      </Container>
     </Navbar>
   );
 }
