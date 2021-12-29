@@ -192,7 +192,7 @@ function SinglePost(props) {
             Comment
           </Button>
           {showCommentForm && (
-            <Form onSubmit={handleCommentAdd}>
+            <Form onSubmit={handleCommentAdd} className="bg-secondary text-white">
               <Form.Group className="mb-3" controlId="content">
                 <Form.Label>Text:</Form.Label>
                 <Form.Control
