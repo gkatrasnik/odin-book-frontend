@@ -155,7 +155,7 @@ function Post(props) {
             <Link to="/userprofile" state={{ targetUser: props.item.user }}>
               {props.item.user.firstname} {props.item.user.lastname}
             </Link>
-            <Link to="/singlepost" state={{ item: props.item }} className="float-end">
+            <Link to="/singlepost" state={{ item: props.item }} className="float-end mx-2">
               {props.item.timestamp}
             </Link>
           </Card.Subtitle>
