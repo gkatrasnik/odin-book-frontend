@@ -71,7 +71,7 @@ function Login(props) {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" class="mx-auto">
           Submit
         </Button>
       </Form>
