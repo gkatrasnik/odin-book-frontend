@@ -15,40 +15,34 @@ function Navigation() {
       </Container>
 
       <Nav className="me-auto">
-        <Nav.Item>
-        <Link to="/UserProfile" state={{ targetUser: user }}>
+        
+        <Link to="/UserProfile" state={{ targetUser: user }} className="nav-link">
           {user.firstname} {user.lastname}
         </Link>
-      </Nav.Item>
+      
         {user ? (
           <>
-          <Nav.Item>
-            <Nav.Link onClick={logout}>Logout</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Link to="/">Feed </Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Link to="friendlist">Friends </Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Link to="friendsugestions">Sugestions </Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Link to="notifications">Notifications </Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Link to="friendrequests">Friend Requests </Link>
-          </Nav.Item>
+          
+            <Nav.Link onClick={logout} >Logout</Nav.Link>         
+          
+            <Link to="/" className="nav-link">Feed </Link>
+          
+            <Link to="friendlist" className="nav-link">Friends </Link>
+          
+            <Link to="friendsugestions" className="nav-link">Sugestions </Link>
+          
+            <Link to="notifications" className="nav-link">Notifications </Link>
+          
+            <Link to="friendrequests" className="nav-link">Friend Requests </Link>
+          
           </>
         ) : (
           <>
-            <Nav.Item>
-             <Link to="login">Login</Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Link to="signup">Sign up</Link>
-            </Nav.Item>
+            
+            <Link to="login" className="nav-link">Login</Link>
+            
+            <Link to="signup" className="nav-link">Sign up</Link>
+            
           </>
         )}
       </Nav>
