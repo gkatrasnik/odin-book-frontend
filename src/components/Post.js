@@ -200,23 +200,23 @@ function Post(props) {
               </Button>
             </Form>
           )}
-          <Card.Text>Comments:</Card.Text>
+          
           </Card.Body>
           
           <ListGroup className="list-group-flush">
-   
+           <ListGroup.Item variant="secondary">Comments</ListGroup.Item>
    
  
           {comments.map((comment, index) => {
             return ( 
-              <ListGroupItem>
+              <ListGroup.Item>
               <Comment
                 getPostsData={props.getPostsData}
                 postId={props.item._id}
                 comment={comment}
                 key={index}
               />
-             </ListGroupItem>
+             </ListGroup.Item>
             );
           })}
  </ListGroup>
