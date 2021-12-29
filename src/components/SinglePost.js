@@ -141,22 +141,14 @@ function SinglePost(props) {
     <>
       {loading && <LoadingModal />}
       <Card style={{ width: "80%", maxWidth: "32rem", margin: "auto" }}>
-        <Card.Body>
-          <Card.Title className="text-center">
-            {item.title}
-            {myPost && (
-              <Button
-                variant="danger"
-                onClick={handlePostDelete}
-                className="float-end"
-              >
-                <TrashFill />
-              </Button>
-            )}
-          </Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">
+        
+          
+            
+           
+          
+          <Card.Header as="h5" className="mb-2">
             <Link to="/userprofile" state={{ targetUser: item.user }}>
-              {item.user.firstname} {item.user.lastname}{" "}
+              {item.user.firstname} {item.user.lastname}
             </Link>
             <Link
               to="/singlepost"
@@ -164,7 +156,18 @@ function SinglePost(props) {
             >
               {item.timestamp}
             </Link>
-          </Card.Subtitle>
+           {myPost && (
+              <Button
+                variant="danger"
+                size="sm"
+                onClick={handlePostDelete}
+                className="float-end"
+              >
+                <TrashFill />
+              </Button>
+            )}
+          </Card.Header>
+<Card.Body>
           <Card.Text>{item.text}</Card.Text>
 
           <br />
