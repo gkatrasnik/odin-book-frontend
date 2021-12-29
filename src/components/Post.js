@@ -138,9 +138,17 @@ function Post(props) {
       {loading && <LoadingModal />}
       <Card style={{ width: "80%", maxWidth: "32rem", margin: "20px" }}>
         <Card.Body>
-          <Card.Title className="text-center">
-            {props.item.title}
-            {myPost && (
+          
+            
+          
+          <Card.Header  as="h5" className="mb-2">
+            <Link to="/userprofile" state={{ targetUser: props.item.user }}>
+              {props.item.user.firstname} {props.item.user.lastname}
+            </Link>
+            <Link to="/singlepost" state={{ item: props.item }} className="float-end mx-2">
+              {props.item.timestamp}
+            </Link>
+{myPost && (
               <Button
                 variant="danger"
                 size="sm"
@@ -150,15 +158,8 @@ function Post(props) {
                 <TrashFill />
               </Button>
             )}
-          </Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">
-            <Link to="/userprofile" state={{ targetUser: props.item.user }}>
-              {props.item.user.firstname} {props.item.user.lastname}
-            </Link>
-            <Link to="/singlepost" state={{ item: props.item }} className="float-end mx-2">
-              {props.item.timestamp}
-            </Link>
-          </Card.Subtitle>
+          </Card.Header>
+
           <Card.Text>{props.item.text}</Card.Text>
 
           <br />
