@@ -141,13 +141,11 @@ function Post(props) {
           
             
           
-          <Card.Header  as="h5" className="mb-2">
-            <Link to="/userprofile" state={{ targetUser: props.item.user }}>
+          <Card.Header   className="mb-2">
+            <Link to="/userprofile" as="h5" state={{ targetUser: props.item.user }}>
               {props.item.user.firstname} {props.item.user.lastname}
             </Link>
-            <Link to="/singlepost" state={{ item: props.item }} className="float-end mx-2">
-              {props.item.timestamp}
-            </Link>
+            
 {myPost && (
               <Button
                 variant="danger"
@@ -158,6 +156,9 @@ function Post(props) {
                 <TrashFill />
               </Button>
             )}
+            <Link to="/singlepost" state={{ item: props.item }} className="float-end mx-2">
+              {props.item.timestamp}
+            </Link>
           </Card.Header>
 <Card.Body>
           <Card.Text>{props.item.text}</Card.Text>
