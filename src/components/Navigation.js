@@ -22,29 +22,29 @@ function Navigation() {
           <>   
            <Nav className="me-auto">
             
-            <Nav.Link as={Link} to="/" >Feed</Nav.Link>
+            <Nav.Link as={Link} to="/" eventKey="1">Feed</Nav.Link>
             
-            <Nav.Link as={Link} to="friendlist" >Friends</Nav.Link>
+            <Nav.Link as={Link} to="friendlist" eventKey="2">Friends</Nav.Link>
             
-            <Nav.Link as={Link} to="friendsugestions" >Suggestions</Nav.Link>
+            <Nav.Link as={Link} to="friendsugestions" eventKey="3">Suggestions</Nav.Link>
             
-            <Nav.Link as={Link} to="notifications" >Notifications</Nav.Link>
+            <Nav.Link as={Link} to="notifications" eventKey="4">Notifications</Nav.Link>
             
-            <Nav.Link as={Link} to="friendrequests" >Friend Requests</Nav.Link>
+            <Nav.Link as={Link} to="friendrequests" eventKey="5">Friend Requests</Nav.Link>
             </Nav>
             <Nav >
-            <Nav.Link as={Link} to="/UserProfile" state={{ targetUser: user }}>{user.firstname} {user.lastname}</Nav.Link>
+            <Nav.Link as={Link} to="/UserProfile" state={{ targetUser: user }} eventKey="6">{user.firstname} {user.lastname}</Nav.Link>
 
-            <Nav.Link onClick={logout} className="text-danger">Logout</Nav.Link> 
+            <Nav.Link onClick={logout} className="text-danger" eventKey="7">Logout</Nav.Link> 
             </Nav>
           </> 
         ) : (
           
             <Nav >  
             
-            <Nav.Link as={Link} to="login" >Login</Nav.Link>
+            <Nav.Link as={Link} to="login" eventKey="8">Login</Nav.Link>
             
-            <Nav.Link as={Link} to="signup" >Sign up</Nav.Link>
+            <Nav.Link as={Link} to="signup" eventKey="9">Sign up</Nav.Link>
             </Nav>
           
         )}
