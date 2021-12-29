@@ -11,6 +11,7 @@ function FriendList() {
 
   useEffect(() => {
     getFriendsData();
+    console.log(friendsList);
   }, []);
 
   const getFriendsData = async () => {
@@ -22,7 +23,7 @@ function FriendList() {
         headers: { Authorization: "Bearer " + token },
       })
       .then((response) => {
-        setFriendsList(response.data);
+        setFriendsList(response.data.friends);
         setLoading(false);
       })
       .catch((err) => {
@@ -36,7 +37,7 @@ function FriendList() {
       <h1 className="center">Friends</h1>
       {friendsList.length > 0 ? (
         <ul style={{ padding: 0 }}>
-          {friendsList.friends.map((item, index) => {
+          {friendsList.map((item, index) => {
             return (
               <li
                 key={index}

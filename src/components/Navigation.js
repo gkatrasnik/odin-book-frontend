@@ -23,7 +23,7 @@ function Navigation() {
             <>
               <Nav className="me-auto">
                 <Nav.Link as={Link} to="/" eventKey="1">
-                  Feed
+                  Timeline
                 </Nav.Link>
 
                 <Nav.Link as={Link} to="friendlist" eventKey="2">

@@ -6,6 +6,7 @@ import { TrashFill, Heart, HeartFill } from "react-bootstrap-icons";
 import { UserContext } from "../contexts/UserContext";
 import LoadingModal from "./LoadingModal";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 function Post(props) {
   const [myPost, setMyPost] = useState(false);
@@ -157,7 +158,7 @@ function Post(props) {
             state={{ item: props.item }}
             className="float-end mx-2"
           >
-            {props.item.timestamp}
+            {moment(props.item.timestamp).format("lll")}
           </Link>
         </Card.Header>
         <Card.Body>

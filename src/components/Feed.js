@@ -16,6 +16,7 @@ function Feed() {
 
   useEffect(() => {
     getPostsData();
+    console.log(postsList);
   }, []);
 
   const getPostsData = async () => {
@@ -33,7 +34,7 @@ function Feed() {
         }
       )
       .then((response) => {
-        setPostsList(response.data);
+        setPostsList(response.data.posts);
         setLoading(false);
       })
       .catch((err) => {
@@ -51,7 +52,7 @@ function Feed() {
       <h1 className="center">Timeline</h1>
       {postsList.length > 0 ? (
         <ul style={{ padding: 0 }}>
-          {postsList.posts.map((item, index) => {
+          {postsList.map((item, index) => {
             return (
               <li
                 key={index}
