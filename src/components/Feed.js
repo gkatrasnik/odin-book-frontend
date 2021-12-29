@@ -44,7 +44,7 @@ function Feed() {
   return (
     <>
       {loading && <LoadingModal />}
-      <AddPost getPostsData={getPostsData} />
+      <AddPost getPostsData={getPostsData} className="d-flex flex-direction-column justify-content-center"/>
       <h1 className="center">Timeline</h1>
       {postsList && (
         <ul style={{ padding: 0 }}>
