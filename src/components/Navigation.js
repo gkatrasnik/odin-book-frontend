@@ -7,7 +7,7 @@ function Navigation() {
   const { user, logout } = useContext(UserContext);
 
   return (
-    <Navbar style={{ borderBottom: "1px solid black" }} collapseOnSelect expand="lg">
+    <Navbar collapseOnSelect expand="xl" style={{ borderBottom: "1px solid black" }} >
       <Container>
         <Navbar.Brand>
           <h3>ODIN BOOK</h3>
