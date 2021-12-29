@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Card } from "react-bootstrap";
 import { UserContext } from "../contexts/UserContext";
 import axios from "axios";
 import LoadingModal from "./LoadingModal";
@@ -48,6 +48,8 @@ function AddPost(props) {
   return (
     <>
       {loading && <LoadingModal />}
+    <Card>
+    <Card.Body>
       <Form
         onSubmit={handlePostAdd}
         style={{ width: "80%", maxWidth: "32rem", margin: "auto" }}
@@ -67,6 +69,8 @@ function AddPost(props) {
           Add Post
         </Button>
       </Form>
+</Card.Body>
+</Card>
     </>
   );
 }
