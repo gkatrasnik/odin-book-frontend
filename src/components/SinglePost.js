@@ -181,18 +181,7 @@ function SinglePost(props) {
               <Heart onClick={likePost} />
             )}
           </Card.Text>
-          <Card.Text>Comments:</Card.Text>
-
-          {comments.map((comment, index) => {
-            return (
-              <Comment
-                getPostsData={getPostsData}
-                postId={item._id}
-                comment={comment}
-                key={index}
-              />
-            );
-          })}
+         
           <Button
             variant="primary"
             className="float-end my-2"
@@ -221,6 +210,24 @@ function SinglePost(props) {
             </Form>
           )}
         </Card.Body>
+
+
+<ListGroup className="list-group-flush">
+  <ListGroup.Item variant="secondary">Comments</ListGroup.Item>
+
+          {comments.map((comment, index) => {
+            return (
+              <ListGroup.Item>
+              <Comment
+                getPostsData={getPostsData}
+                postId={item._id}
+                comment={comment}
+                key={index}
+              />
+              </ListGroup.Item>
+            );
+          })}
+           </ListGroup>
       </Card>
     </>
   );
