@@ -21,7 +21,7 @@ function App() {
     <HashRouter>
       <UserProvider>
         <Navigation />
-        <Container>
+        <Container className="pt-3">
           <Routes>
             <Route exact path="/" element={<PrivateRoute />}>
               <Route exact path="/" element={<Feed />} />
