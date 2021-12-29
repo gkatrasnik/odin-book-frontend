@@ -7,7 +7,7 @@ function Navigation() {
   const { user, logout } = useContext(UserContext);
 
   return (
-    <Navbar style={{ borderBottom: "1px solid black" }} expand="lg">
+    <Navbar style={{ borderBottom: "1px solid black" }} expand="lg" className="justify-content-end">
       <Container>
         <Navbar.Brand>
           <h3>ODIN BOOK</h3>
@@ -41,7 +41,7 @@ function Navigation() {
           </> 
         ) : (
           
-            <Nav className="float-end">  
+            <Nav >  
             <Link to="login" className="nav-link">Login</Link>
             
             <Link to="signup" className="nav-link">Sign up</Link>
