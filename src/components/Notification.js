@@ -41,7 +41,7 @@ function Notification(props) {
     <>
       {loading && <LoadingModal />}
       <Card style={{ width: "80%", maxWidth: "32rem", margin: "20px" }}>
-        <Card.Text>
+        <Card.Body>
           {props.item.text}
           <Button
             variant="danger"
@@ -51,7 +51,7 @@ size="sm"
           >
             Read
           </Button>
-        </Card.Text>
+        </Card.Body>
       </Card>
     </>
   );
