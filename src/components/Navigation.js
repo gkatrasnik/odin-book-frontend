@@ -31,7 +31,7 @@ function Navigation() {
           
             <Link to="friendrequests" className="nav-link">Friend Requests </Link>
           </Nav>
-          <Nav className="justify-content-end">
+          <Nav className="me-auto">
            <Link to="/UserProfile" state={{ targetUser: user }} className="nav-link">
             {user.firstname} {user.lastname}
             </Link>
@@ -41,7 +41,7 @@ function Navigation() {
           </> 
         ) : (
           
-            <Nav className="justify-content-end">  
+            <Nav className="me-auto">  
             <Link to="login" className="nav-link">Login</Link>
             
             <Link to="signup" className="nav-link">Sign up</Link>
