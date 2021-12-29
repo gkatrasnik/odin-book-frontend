@@ -163,7 +163,8 @@ function SinglePost(props) {
             )}
             <Link
               to="/singlepost"
-              state={{ item: item, getPostsData: getPostsData }}
+              state={{ item: item, getPostsData: getPostsData }} 
+              className="float-end mx-2"
             >
               {item.timestamp}
             </Link>
