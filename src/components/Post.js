@@ -155,7 +155,7 @@ function Post(props) {
             <Link to="/userprofile" state={{ targetUser: props.item.user }}>
               {props.item.user.firstname} {props.item.user.lastname}
             </Link>
-            <Link to="/singlepost" state={{ item: props.item }}>
+            <Link to="/singlepost" state={{ item: props.item }} className="float-end">
               {props.item.timestamp}
             </Link>
           </Card.Subtitle>
@@ -180,20 +180,7 @@ function Post(props) {
               Comment
             </Button>
           </Card.Text>
-          <Card.Text>Comments:</Card.Text>
-
-          {comments.map((comment, index) => {
-            return (
-              <Comment
-                getPostsData={props.getPostsData}
-                postId={props.item._id}
-                comment={comment}
-                key={index}
-              />
-            );
-          })}
-
-          {showCommentForm && (
+{showCommentForm && (
             <Form onSubmit={handleCommentAdd}>
               <Form.Group className="mb-3" controlId="content">
                 <Form.Label>Text:</Form.Label>
@@ -211,6 +198,20 @@ function Post(props) {
               </Button>
             </Form>
           )}
+          <Card.Text>Comments:</Card.Text>
+
+          {comments.map((comment, index) => {
+            return (
+              <Comment
+                getPostsData={props.getPostsData}
+                postId={props.item._id}
+                comment={comment}
+                key={index}
+              />
+            );
+          })}
+
+          
         </Card.Body>
       </Card>
     </>
