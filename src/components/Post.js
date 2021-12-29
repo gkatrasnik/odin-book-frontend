@@ -193,7 +193,7 @@ function Post(props) {
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit" className="float-end">
+              <Button variant="primary" size="sm" type="submit" className="float-end">
                 Submit
               </Button>
             </Form>
