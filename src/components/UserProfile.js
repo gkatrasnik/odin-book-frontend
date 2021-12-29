@@ -34,7 +34,7 @@ function UserProfile() {
 
   return (
     <>
-      <h1>
+      <h1 className="center">
         {targetUser.firstname} {targetUser.lastname}
       </h1>
       <>
