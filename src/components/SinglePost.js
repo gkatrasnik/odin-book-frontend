@@ -213,7 +213,7 @@ function SinglePost(props) {
 
 
 <ListGroup className="list-group-flush">
-  <ListGroup.Item variant="secondary">Comments</ListGroup.Item>
+  <ListGroup.Item variant="light">Comments:</ListGroup.Item>
 
           {comments.map((comment, index) => {
             return (
