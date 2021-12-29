@@ -7,7 +7,7 @@ function Navigation() {
   const { user, logout } = useContext(UserContext);
 
   return (
-    <Navbar collapseOnSelect expand="xl" style={{ borderBottom: "1px solid black" }} >
+    <Navbar collapseOnSelect expand="lg" style={{ borderBottom: "1px solid black" }} >
       <Container>
         <Navbar.Brand>
           <h3>ODIN BOOK</h3>
@@ -21,20 +21,19 @@ function Navigation() {
           
           <>   
            <Nav className="me-auto">
-            <Link to="/" className="nav-link">Feed </Link>
-          
-            <Link to="friendlist" className="nav-link">Friends </Link>
-          
-            <Link to="friendsugestions" className="nav-link">Sugestions </Link>
-          
-            <Link to="notifications" className="nav-link">Notifications </Link>
-          
-            <Link to="friendrequests" className="nav-link">Friend Requests </Link>
-          </Nav>
-          <Nav >
-           <Link to="/UserProfile" state={{ targetUser: user }} className="nav-link">
-            {user.firstname} {user.lastname}
-            </Link>
+            
+            <Nav.Link as={Link} to="/" >Feed</Nav.Link>
+            
+            <Nav.Link as={Link} to="friendlist" >Friends</Nav.Link>
+            
+            <Nav.Link as={Link} to="friendsugestions" >Suggestions</Nav.Link>
+            
+            <Nav.Link as={Link} to="notifications" >Notifications</Nav.Link>
+            
+            <Nav.Link as={Link} to="friendrequests" >Friend Requests</Nav.Link>
+            </Nav>
+            <Nav >
+            <Nav.Link as={Link} to="/UserProfile" state={{ targetUser: user }}>{user.firstname} {user.lastname}</Nav.Link>
 
             <Nav.Link onClick={logout} className="text-danger">Logout</Nav.Link> 
             </Nav>
@@ -42,9 +41,10 @@ function Navigation() {
         ) : (
           
             <Nav >  
-            <Link to="login" className="nav-link">Login</Link>
             
-            <Link to="signup" className="nav-link">Sign up</Link>
+            <Nav.Link as={Link} to="login" >Login</Nav.Link>
+            
+            <Nav.Link as={Link} to="signup" >Sign up</Nav.Link>
             </Nav>
           
         )}
