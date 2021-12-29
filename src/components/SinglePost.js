@@ -219,9 +219,10 @@ function SinglePost(props) {
                 Submit
               </Button>
             </Form>
+          </ListGroup.Item>
           )} 
             
-   </ListGroup.Item>
+   
 
           {comments.map((comment, index) => {
             return (
