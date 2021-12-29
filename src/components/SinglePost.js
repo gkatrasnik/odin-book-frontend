@@ -146,16 +146,11 @@ function SinglePost(props) {
             
            
           
-          <Card.Header as="h5" className="mb-2">
+          <Card.Header className="mb-2">
             <Link to="/userprofile" state={{ targetUser: item.user }}>
               {item.user.firstname} {item.user.lastname}
             </Link>
-            <Link
-              to="/singlepost"
-              state={{ item: item, getPostsData: getPostsData }}
-            >
-              {item.timestamp}
-            </Link>
+            
            {myPost && (
               <Button
                 variant="danger"
@@ -166,6 +161,12 @@ function SinglePost(props) {
                 <TrashFill />
               </Button>
             )}
+            <Link
+              to="/singlepost"
+              state={{ item: item, getPostsData: getPostsData }}
+            >
+              {item.timestamp}
+            </Link>
           </Card.Header>
 <Card.Body>
           <Card.Text>{item.text}</Card.Text>
