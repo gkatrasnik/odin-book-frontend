@@ -68,7 +68,7 @@ function FriendRequest(props) {
     <>
       {loading && <LoadingModal />}
       <Card style={{ width: "80%", maxWidth: "32rem", margin: "20px" }}>
-        <Card.Text>
+        <Card.Body>
           Friend request from {props.item.firstname} {props.item.lastname}
           <Button
             variant="success"
@@ -86,7 +86,7 @@ function FriendRequest(props) {
           >
             Deny
           </Button>
-        </Card.Text>
+        </Card.Body>
       </Card>
     </>
   );
