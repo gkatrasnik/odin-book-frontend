@@ -171,18 +171,26 @@ function Post(props) {
             ) : (
               <Heart onClick={likePost} />
             )}
-            <Button
+            
+          </Card.Text>
+
+          
+          </Card.Body>
+          
+          <ListGroup className="list-group-flush">
+           <ListGroup.Item variant="light">Comments:
+             <Button
               variant="primary"
               size="sm"
-              className="float-end my-2"
+              className="float-end"
               onClick={() => {
                 setShowCommentForm(!showCommentForm);
               }}
             >
               Comment
             </Button>
-          </Card.Text>
-{showCommentForm && (
+             </ListGroup.Item>
+<ListGroup.Item >{showCommentForm && (
             <Form onSubmit={handleCommentAdd} className="bg-secondary text-white">
               <Form.Group className="mb-3" controlId="content">
                 <Form.Label>Text:</Form.Label>
@@ -200,11 +208,8 @@ function Post(props) {
               </Button>
             </Form>
           )}
-          
-          </Card.Body>
-          
-          <ListGroup className="list-group-flush">
-           <ListGroup.Item variant="light">Comments:</ListGroup.Item>
+  </ListGroup.Item>
+
    
  
           {comments.map((comment, index) => {
