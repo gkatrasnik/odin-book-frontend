@@ -216,7 +216,7 @@ function Post(props) {
  
           {comments.map((comment, index) => {
             return ( 
-              <ListGroup.Item>
+              <ListGroup.Item className="bg-light">
               <Comment
                 getPostsData={props.getPostsData}
                 postId={props.item._id}

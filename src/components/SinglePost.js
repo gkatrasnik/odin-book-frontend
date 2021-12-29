@@ -226,7 +226,7 @@ function SinglePost(props) {
 
           {comments.map((comment, index) => {
             return (
-              <ListGroup.Item>
+              <ListGroup.Item className="bg-light">
               <Comment
                 getPostsData={getPostsData}
                 postId={item._id}
