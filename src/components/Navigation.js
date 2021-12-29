@@ -7,14 +7,14 @@ function Navigation() {
   const { user, logout } = useContext(UserContext);
 
   return (
-    <Navbar style={{ borderBottom: "1px solid black" }} expand="lg" className="justify-content-end">
+    <Navbar style={{ borderBottom: "1px solid black" }} expand="lg">
       <Container>
         <Navbar.Brand>
           <h3>ODIN BOOK</h3>
         </Navbar.Brand>
       
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
          
       
         {user ? (
