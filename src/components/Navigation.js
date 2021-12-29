@@ -41,7 +41,7 @@ function Navigation() {
           </> 
         ) : (
           
-            <Nav >  
+            <Nav className="float-end">  
             <Link to="login" className="nav-link">Login</Link>
             
             <Link to="signup" className="nav-link">Sign up</Link>
