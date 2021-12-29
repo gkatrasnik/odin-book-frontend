@@ -45,6 +45,7 @@ function Notification(props) {
           {props.item.text}
           <Button
             variant="danger"
+size="sm"
             onClick={readNotification}
             className="float-end"
           >
