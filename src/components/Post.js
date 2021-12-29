@@ -208,8 +208,9 @@ function Post(props) {
                 Submit
               </Button>
             </Form>
+</ListGroup.Item>
           )}
-  </ListGroup.Item>
+  
 
    
  
