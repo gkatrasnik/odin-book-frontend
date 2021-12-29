@@ -202,8 +202,8 @@ function SinglePost(props) {
   </ListGroup.Item>
   
             {showCommentForm && (
-            <ListGroup.Item>
-            <Form onSubmit={handleCommentAdd} className="bg-secondary text-white">
+            <ListGroup.Item className="bg-secondary text-white">
+            <Form onSubmit={handleCommentAdd} >
               <Form.Group className="mb-3" controlId="content">
                 <Form.Label>Text:</Form.Label>
                 <Form.Control
