@@ -107,7 +107,7 @@ function Signup() {
             }}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" class="mx-auto">
+        <Button variant="primary" type="submit" className="mx-auto">
           Sign up
         </Button>
       </Form>

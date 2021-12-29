@@ -13,26 +13,42 @@ function Navigation() {
           <h3>ODIN BOOK</h3>
         </Navbar.Brand>
       </Container>
+
       <Nav className="me-auto">
+        <Nav.Item>
         <Link to="/UserProfile" state={{ targetUser: user }}>
           {user.firstname} {user.lastname}
         </Link>
-
+      </Nav.Item>
         {user ? (
           <>
+          <Nav.Item>
             <Nav.Link onClick={logout}>Logout</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
             <Link to="/">Feed </Link>
+          </Nav.Item>
+          <Nav.Item>
             <Link to="friendlist">Friends </Link>
+          </Nav.Item>
+          <Nav.Item>
             <Link to="friendsugestions">Sugestions </Link>
+          </Nav.Item>
+          <Nav.Item>
             <Link to="notifications">Notifications </Link>
+          </Nav.Item>
+          <Nav.Item>
             <Link to="friendrequests">Friend Requests </Link>
+          </Nav.Item>
           </>
         ) : (
           <>
-            {/* Make it look nice ---------------------------------------------------- */}
-            <Link to="login">Login</Link>
-
-            <Link to="signup">Sign up</Link>
+            <Nav.Item>
+             <Link to="login">Login</Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Link to="signup">Sign up</Link>
+            </Nav.Item>
           </>
         )}
       </Nav>
