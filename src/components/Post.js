@@ -170,9 +170,9 @@ function Post(props) {
           <Card.Text>
             Likes: {postLikesCount}
             {postLiked ? (
-              <HeartFill onClick={likePost} />
+              <HeartFill onClick={likePost} className="mx-2"/>
             ) : (
-              <Heart onClick={likePost} />
+              <Heart onClick={likePost} className="mx-2"/>
             )}
           </Card.Text>
         </Card.Body>
