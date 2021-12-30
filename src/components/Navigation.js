@@ -15,7 +15,9 @@ function Navigation() {
     >
       <Container>
         <Navbar.Brand>
+        <Nav.Link as={Link} to="/" >
           <h3>FAKE BOOK</h3>
+          </Nav.Link>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -28,22 +30,22 @@ function Navigation() {
                   Timeline
                 </Nav.Link>
 
-                <Nav.Link as={Link} to="friendlist" eventKey="2">
+                <Nav.Link as={Link} to="/friendlist" eventKey="2">
                   <People/>{" "}
                   My Friends
                 </Nav.Link>
 
-                <Nav.Link as={Link} to="friendsugestions" eventKey="3">
+                <Nav.Link as={Link} to="/friendsugestions" eventKey="3">
                   <PersonPlus/>{" "}
                   Add Friends
                 </Nav.Link>
 
-                <Nav.Link as={Link} to="friendrequests" eventKey="5">
+                <Nav.Link as={Link} to="/friendrequests" eventKey="5">
                   <PersonCheck/>{" "}
                   Friend Requests
                 </Nav.Link>
 
-                <Nav.Link as={Link} to="notifications" eventKey="4">
+                <Nav.Link as={Link} to="/notifications" eventKey="4">
                   <Bell/>{" "}
                   Notifications
                 </Nav.Link>
@@ -67,12 +69,12 @@ function Navigation() {
             </>
           ) : (
             <Nav>
-              <Nav.Link as={Link} to="login" eventKey="8">
+              <Nav.Link as={Link} to="/login" eventKey="8">
                 <BoxArrowInRight/>{" "}
                 Login
               </Nav.Link>
 
-              <Nav.Link as={Link} to="signup" eventKey="9">
+              <Nav.Link as={Link} to="/signup" eventKey="9">
                 <BoxArrowInUp/>{" "}
                 Sign up
               </Nav.Link>
