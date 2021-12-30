@@ -1,10 +1,11 @@
 import { useState, useContext } from "react";
-import { Form, Button, Card } from "react-bootstrap";
+import { Form, Button, Card, Nav } from "react-bootstrap";
 import { UserContext } from "../contexts/UserContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import LoadingModal from "./LoadingModal";
+import {BoxArrowInUp} from "react-bootstrap-icons";
 
 function Login(props) {
   const [loading, setLoading] = useState(false);
@@ -77,6 +78,10 @@ function Login(props) {
           Log in
         </Button>
       </Form>
+      <Nav.Link as={Link} to="signup" eventKey="9" className="center">
+                <BoxArrowInUp/>{" "}
+                Sign up
+              </Nav.Link>
       </Card.Body>
       </Card>
     </>
