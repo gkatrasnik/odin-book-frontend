@@ -24,27 +24,27 @@ function Navigation() {
             <>
               <Nav className="me-auto">
                 <Nav.Link as={Link} to="/" eventKey="1">
-                  <Newspaper/>
+                  <Newspaper/>{" "}
                   Timeline
                 </Nav.Link>
 
                 <Nav.Link as={Link} to="friendlist" eventKey="2">
-                  <People/>
+                  <People/>{" "}
                   My Friends
                 </Nav.Link>
 
                 <Nav.Link as={Link} to="friendsugestions" eventKey="3">
-                  <PersonPlus/>
+                  <PersonPlus/>{" "}
                   Add Friends
                 </Nav.Link>
 
                 <Nav.Link as={Link} to="friendrequests" eventKey="5">
-                  <PersonCheck/>
+                  <PersonCheck/>{" "}
                   Friend Requests
                 </Nav.Link>
 
                 <Nav.Link as={Link} to="notifications" eventKey="4">
-                  <Bell/>
+                  <Bell/>{" "}
                   Notifications
                 </Nav.Link>
               </Nav>
@@ -55,12 +55,12 @@ function Navigation() {
                   state={{ targetUser: user }}
                   className="text-primary"
                   eventKey="6"
-                ><Person/>
+                ><Person/>{" "}
                   {user.firstname} {user.lastname}
                 </Nav.Link>
 
                 <Nav.Link onClick={logout} className="text-danger" eventKey="7">
-                  <BoxArrowRight/>
+                  <BoxArrowRight/>{" "}
                   Logout
                 </Nav.Link>
               </Nav>
@@ -68,12 +68,12 @@ function Navigation() {
           ) : (
             <Nav>
               <Nav.Link as={Link} to="login" eventKey="8">
-                <BoxArrowInRight/>
+                <BoxArrowInRight/>{" "}
                 Login
               </Nav.Link>
 
               <Nav.Link as={Link} to="signup" eventKey="9">
-                <BoxArrowInUp/>
+                <BoxArrowInUp/>{" "}
                 Sign up
               </Nav.Link>
             </Nav>
