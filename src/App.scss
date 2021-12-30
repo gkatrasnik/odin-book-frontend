@@ -23,11 +23,11 @@ $enable-shadows:false;
 $body-text-align:null;
 
 /*! Import Bootstrap 5 variables */
-@import "../node_modules/bootstrap/functions";
-@import "../node_modules/bootstrap/variables";
+@import "~/bootstrap/scss/bootstrap/variables";
+@import "~/bootstrap/scss/bootstrap/functions";
 $body-color:$gray-900;
 $body-bg:$white;
-@import "../node_modules/bootstrap";
+@import  "~/bootstrap/scss/bootstrap";
 
 // Add SASS theme customizations here..
 
