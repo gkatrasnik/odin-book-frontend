@@ -48,7 +48,7 @@ function AddPost(props) {
   return (
     <>
       {loading && <LoadingModal />}
-    <Card style={{ width: "80%", maxWidth: "32rem",  margin: "auto"}} className="mt-2">
+    <Card style={{ width: "90%", maxWidth: "32rem",  margin: "auto"}} className="mt-2">
     <Card.Body>
       <Form
         onSubmit={handlePostAdd}

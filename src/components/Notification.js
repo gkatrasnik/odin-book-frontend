@@ -39,7 +39,7 @@ function Notification(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <Card style={{ width: "80%", maxWidth: "32rem",  margin: "20px"}}>
+      <Card style={{ width: "90%", maxWidth: "32rem",  margin: "20px"}}>
         <Card.Body>
           {props.item.text}
           <Button

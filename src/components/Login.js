@@ -44,7 +44,7 @@ function Login(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <Card style={{ width: "80%", maxWidth: "32rem",  margin: "auto"}}>
+      <Card style={{ width: "90%", maxWidth: "32rem",  margin: "auto"}}>
       <Card.Body>
       <h1 className="center">Log in</h1>
       <Form
