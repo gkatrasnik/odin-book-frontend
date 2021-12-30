@@ -59,7 +59,7 @@ function FriendRequests(props) {
           })}
         </ul>
       ) : (
-        <h2 className="center text-muted">No friend requests...</h2>
+        <h2 className="center text-muted mt-3">No friend requests...</h2>
       )}
     </>
   );

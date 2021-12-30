@@ -53,7 +53,7 @@ function FriendList() {
           })}
         </ul>
       ) : (
-        <h2 className="center text-muted">No friends...</h2>
+        <h2 className="center text-muted mt-3">No friends...</h2>
       )}
     </>
   );

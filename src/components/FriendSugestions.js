@@ -79,7 +79,7 @@ function FriendSuggestions() {
           })}
         </ul>
       ) : (
-        <h2 className="center text-muted">No friend suggestions...</h2>
+        <h2 className="center text-muted mt-3">No friend suggestions...</h2>
       )}
     </>
   );

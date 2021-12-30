@@ -59,7 +59,7 @@ function Notifications(props) {
           })}
         </ul>
       ) : (
-        <h2 className="center text-muted">No notifications...</h2>
+        <h2 className="center text-muted mt-3">No notifications...</h2>
       )}
     </>
   );

@@ -49,7 +49,7 @@ function Feed() {
         getPostsData={getPostsData}
         className="d-flex flex-direction-column justify-content-center"
       />
-      <h1 className="center mt-2">Timeline</h1>
+      <h1 className="center mt-3">Timeline</h1>
       {postsList.length > 0 ? (
         <ul style={{ padding: 0 }}>
           {postsList.map((item, index) => {
@@ -65,7 +65,7 @@ function Feed() {
         </ul>
       ) : (
         <div className="center">
-          <h2 className="text-muted">No posts...</h2>
+          <h2 className="text-muted mt-3">No posts...</h2>
           <h5 className="text-muted">Add some friends to see their posts</h5>
         </div>
       )}
