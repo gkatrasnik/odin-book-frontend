@@ -142,7 +142,7 @@ function SinglePost(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <Card  className="card-auto mt-2">
+      <Card  style={{ width: "80%", maxWidth: "32rem",  margin: "auto"}} className=" mt-2">
         <Card.Header className="mb-2">
           <Link to="/userprofile" state={{ targetUser: item.user }}>
             {item.user.firstname} {item.user.lastname}

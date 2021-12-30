@@ -50,7 +50,7 @@ function Signup() {
   return (
     <>
       {loading && <LoadingModal />}
-      <Card className="card-auto">
+      <Card style={{ width: "80%", maxWidth: "32rem",  margin: "auto"}}>
       <Card.Body>
       <h1 className="center">Sign up</h1>
       <Form
