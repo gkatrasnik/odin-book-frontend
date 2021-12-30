@@ -23,27 +23,13 @@ $enable-shadows:false;
 $body-text-align:null;
 
 /*! Import Bootstrap 5 variables */
-@import "../node_modules/bootstrap/scss/variables";
+
 @import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
 $body-color:$gray-900;
 $body-bg:$white;
+
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 // Add SASS theme customizations here..
-
-.spinner {
-  position: fixed;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  top: 40vh;
-  color: rgb(228, 188, 9);
-  width: 4rem;
-  height: 4rem;
-  z-index: 10000;
-}
-
-.center {
-  text-align: center;
-}
