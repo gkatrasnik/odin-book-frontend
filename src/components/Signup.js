@@ -54,7 +54,7 @@ function Signup() {
       <Card.Body>
       <h1 className="center">Sign up</h1>
       <Form
-        style={{ width: "80%", maxWidth: "32rem", margin: "auto" }}
+        style={{ width: "90%", maxWidth: "32rem", margin: "auto" }}
         onSubmit={signupHandler}
       >
         <Form.Group className="mb-3" controlId="firstname">

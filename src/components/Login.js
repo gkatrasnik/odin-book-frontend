@@ -49,7 +49,7 @@ function Login(props) {
       <h1 className="center">Log in</h1>
       <Form
         onSubmit={loginHandler}
-        style={{ width: "80%", maxWidth: "32rem", margin: "auto" }}
+        style={{ width: "90%", maxWidth: "32rem", margin: "auto" }}
       >
         <Form.Group className="mb-3" controlId="username">
           <Form.Label>Username</Form.Label>

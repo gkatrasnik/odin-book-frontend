@@ -52,7 +52,7 @@ function AddPost(props) {
     <Card.Body>
       <Form
         onSubmit={handlePostAdd}
-        style={{ width: "80%", maxWidth: "32rem",  margin: "auto"}}
+        style={{ width: "90%", maxWidth: "32rem",  margin: "auto"}}
       >
         <h1 className="center my-2">Add new post</h1>
 
