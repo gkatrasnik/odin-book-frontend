@@ -78,7 +78,7 @@ function Login(props) {
           Log in
         </Button>
       </Form>
-      <Nav.Link as={Link} to="/signup" eventKey="9" className="float-start">
+      <Nav.Link as={Link} to="/signup" eventKey="9" className="float-start mx-2">
                 <BoxArrowInUp/>{" "}
                 Sign up
               </Nav.Link>
