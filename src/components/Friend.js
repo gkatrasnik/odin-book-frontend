@@ -3,7 +3,7 @@ import { Card, Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
-import { TrashFill } from "react-bootstrap-icons";
+import { Trash } from "react-bootstrap-icons";
 import { UserContext } from "../contexts/UserContext";
 
 function Friend(props) {
@@ -43,7 +43,7 @@ function Friend(props) {
           onClick={handleFriendDelete}
           className="float-end"
         >
-          <TrashFill />
+          <Trash />
         </Button>
       </Card.Body>
     </Card>

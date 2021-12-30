@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Card, Button, Form, ListGroup, ListGroupItem } from "react-bootstrap";
 import Comment from "./Comment";
 import axios from "axios";
-import { TrashFill, Heart, HeartFill } from "react-bootstrap-icons";
+import { Trash, Heart, HeartFill } from "react-bootstrap-icons";
 import { UserContext } from "../contexts/UserContext";
 import LoadingModal from "./LoadingModal";
 import { Link } from "react-router-dom";
@@ -152,7 +152,7 @@ function Post(props) {
               onClick={handlePostDelete}
               className="float-end"
             >
-              <TrashFill />
+              <Trash />
             </Button>
           )}
           <Link

@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import axios from "axios";
-import { Trash } from "react-bootstrap-icons";
 import { UserContext } from "../contexts/UserContext";
 import LoadingModal from "./LoadingModal";
 
