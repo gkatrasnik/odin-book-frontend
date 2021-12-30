@@ -173,9 +173,9 @@ function SinglePost(props) {
           <Card.Text>
             Likes: {postLikesCount}
             {postLiked ? (
-              <HeartFill onClick={likePost} />
+              <HeartFill onClick={likePost} className="mx-2 hand"/>
             ) : (
-              <Heart onClick={likePost} />
+              <Heart onClick={likePost} className="mx-2 hand"/>
             )}
           </Card.Text>
         </Card.Body>
