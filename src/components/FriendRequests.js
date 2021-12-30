@@ -39,7 +39,7 @@ function FriendRequests(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <h1 className="center">Friend Requests</h1>
+      <h1 className="center mt-2">Friend Requests</h1>
 
       {friendRequestsList.length > 0 ? (
         <ul style={{ padding: 0 }}>

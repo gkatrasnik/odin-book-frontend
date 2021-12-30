@@ -58,7 +58,7 @@ function FriendSuggestions() {
   return (
     <>
       {loading && <LoadingModal />}
-      <h1 className="center">Friend Suggestions</h1>
+      <h1 className="center mt-2">Friend Suggestions</h1>
       {suggestionsList.length > 0 ? (
         <ul style={{ padding: 0 }}>
           {suggestionsList.map((item, index) => {

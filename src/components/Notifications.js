@@ -39,7 +39,7 @@ function Notifications(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <h1 className="center">Notifications</h1>
+      <h1 className="center mt-2">Notifications</h1>
 
       {notificationsList.length > 0 ? (
         <ul style={{ padding: 0 }}>

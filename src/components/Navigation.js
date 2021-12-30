@@ -14,7 +14,7 @@ function Navigation() {
     >
       <Container>
         <Navbar.Brand>
-          <h3>ODIN BOOK</h3>
+          <h3>FAKE BOOK</h3>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

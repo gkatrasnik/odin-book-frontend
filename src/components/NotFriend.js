@@ -87,7 +87,7 @@ function NotFriend(props) {
   };
 
   return (
-    <Card style={{ width: "80%", maxWidth: "32rem", margin: "20px" }}>
+    <Card className="card-20">
       <Card.Body>
         {props.item.firstname} {props.item.lastname}
         {requestSent ? (

@@ -34,7 +34,7 @@ function FriendList() {
   return (
     <>
       {loading && <LoadingModal />}
-      <h1 className="center">Friends</h1>
+      <h1 className="center mt-2">Friends</h1>
       {friendsList.length > 0 ? (
         <ul style={{ padding: 0 }}>
           {friendsList.map((item, index) => {
