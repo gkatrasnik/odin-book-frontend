@@ -54,13 +54,13 @@ $body-bg:$white;
 }
 
 .card-g {
-  width: "80%";
-  max-width: "32rem";
-  margin: "20px"
+  width: "80%" !important;
+  max-width: "32rem" !important;
+  margin: "20px" !important
 }
 
 .card-auto {
-  width: "80%";
-  max-width: "32rem";
-  margin: "auto"
+  width: "80%" !important;
+  max-width: "32rem" !important;
+  margin: "auto" !important
 }
