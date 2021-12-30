@@ -1,5 +1,5 @@
 import { Spinner } from "react-bootstrap";
-import "../App.css";
+import "../App.scss";
 function LoadingModal() {
   return <Spinner animation="grow" className="spinner" />;
 }
