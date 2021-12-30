@@ -87,7 +87,7 @@ function NotFriend(props) {
   };
 
   return (
-    <Card className="card-20">
+    <Card className="card-g">
       <Card.Body>
         {props.item.firstname} {props.item.lastname}
         {requestSent ? (

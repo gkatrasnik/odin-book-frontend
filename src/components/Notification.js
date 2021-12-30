@@ -40,7 +40,7 @@ function Notification(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <Card className="card-20">
+      <Card className="card-g">
         <Card.Body>
           {props.item.text}
           <Button

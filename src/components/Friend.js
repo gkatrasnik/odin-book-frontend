@@ -32,7 +32,7 @@ function Friend(props) {
   };
 
   return (
-    <Card className="card-20">
+    <Card className="card-g">
       <Card.Body>
         <Link to="/UserProfile" state={{ targetUser: props.item }}>
           {props.item.firstname} {props.item.lastname}

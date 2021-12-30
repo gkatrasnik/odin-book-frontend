@@ -139,7 +139,7 @@ function Post(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <Card className="card-20">
+      <Card className="card-g">
         <Card.Header className="mb-2">
           <Link to="/userprofile" state={{ targetUser: props.item.user }}>
             {props.item.user.firstname} {props.item.user.lastname}
