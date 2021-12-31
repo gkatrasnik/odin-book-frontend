@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes, useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import PrivateRoute from "./components/PrivateRoute";
 import Feed from "./components/Feed";
@@ -19,6 +19,7 @@ import SinglePost from "./components/SinglePost";
 function App() {
   //trigger state is set when notification/friend request is read to rerender app and update navigation badge display
   const [trigger, setTrigger] = useState(0);
+
   return (
     <HashRouter>
       <UserProvider>

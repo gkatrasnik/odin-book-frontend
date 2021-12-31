@@ -16,7 +16,6 @@ function Feed() {
 
   useEffect(() => {
     getPostsData();
-    console.log(postsList);
   }, []);
 
   const getPostsData = async () => {

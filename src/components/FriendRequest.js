@@ -70,7 +70,7 @@ function FriendRequest(props) {
       {loading && <LoadingModal />}
       <Card style={{ width: "90%", maxWidth: "32rem", margin: "20px" }}>
         <Card.Body>
-          Friend request from {props.item.firstname} {props.item.lastname}
+          {props.item.firstname} {props.item.lastname} wants to be your friend
           <div className="float-end">
             <Button
               variant="success"

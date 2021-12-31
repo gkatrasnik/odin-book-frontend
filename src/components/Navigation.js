@@ -1,7 +1,7 @@
 import { Navbar, Nav, Container, Badge } from "react-bootstrap";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   Bell,
   Person,
@@ -20,19 +20,20 @@ function Navigation(props) {
   const [notificationsList, setNotificationsList] = useState([]);
   const [friendRequestsList, setFriendRequestsList] = useState([]);
 
-  //run to update notifications when notification read
+  const location = useLocation();
+
+  //check for notifications/friend requests on route change
   useEffect(() => {
     getNotificationsData();
     getFriendRequestsData();
+  }, [location]);
 
+  //check for notifications/friend requests when notification read/friend request accepted or denied
+  useEffect(() => {
+    getNotificationsData();
+    getFriendRequestsData();
     console.log(props.triger);
   }, [props.trigger]);
-
-  //run on login
-  useEffect(() => {
-    props.setTrigger(props.trigger + 1);
-    console.log("strat", props.trigger);
-  }, [user]);
 
   const getNotificationsData = async () => {
     const userId = user._id;
@@ -101,7 +102,7 @@ function Navigation(props) {
                 </Nav.Link>
 
                 <Nav.Link as={Link} to="/friendrequests" eventKey="5">
-                  <PersonCheck /> Friend Requests{" "}
+                  <PersonCheck /> Friend Requests
                   {friendRequestsList.length > 0 && (
                     <Badge pill bg="danger">
                       {friendRequestsList.length}
@@ -110,7 +111,7 @@ function Navigation(props) {
                 </Nav.Link>
 
                 <Nav.Link as={Link} to="/notifications" eventKey="4">
-                  <Bell /> Notifications{" "}
+                  <Bell /> Notifications
                   {notificationsList.length > 0 && (
                     <Badge pill bg="danger">
                       {notificationsList.length}
