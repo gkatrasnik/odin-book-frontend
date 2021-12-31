@@ -17,10 +17,12 @@ import FriendRequests from "./components/FriendRequests";
 import SinglePost from "./components/SinglePost";
 
 function App() {
+  //trigger state is set when notification/friend request is read to rerender app and update navigation badge display
+  const [trigger, setTrigger] = useState(0);
   return (
     <HashRouter>
       <UserProvider>
-        <Navigation />
+        <Navigation trigger={trigger} setTrigger={setTrigger} />
         <Container className="pt-3">
           <Routes>
             <Route exact path="/" element={<PrivateRoute />}>
@@ -40,14 +42,22 @@ function App() {
             </Route>
 
             <Route exact path="/notifications" element={<PrivateRoute />}>
-              <Route exact path="/notifications" element={<Notifications />} />
+              <Route
+                exact
+                path="/notifications"
+                element={
+                  <Notifications trigger={trigger} setTrigger={setTrigger} />
+                }
+              />
             </Route>
 
             <Route exact path="/friendrequests" element={<PrivateRoute />}>
               <Route
                 exact
                 path="/friendrequests"
-                element={<FriendRequests />}
+                element={
+                  <FriendRequests trigger={trigger} setTrigger={setTrigger} />
+                }
               />
             </Route>
 

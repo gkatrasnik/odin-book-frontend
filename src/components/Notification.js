@@ -28,6 +28,7 @@ function Notification(props) {
       )
       .then((res) => {
         props.getNotificationsData();
+        props.setTrigger(props.trigger + 1);
         setLoading(false);
       })
       .catch((err) => {
@@ -39,12 +40,12 @@ function Notification(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <Card style={{ width: "90%", maxWidth: "32rem",  margin: "20px"}}>
+      <Card style={{ width: "90%", maxWidth: "32rem", margin: "20px" }}>
         <Card.Body>
           {props.item.text}
           <Button
             variant="danger"
-size="sm"
+            size="sm"
             onClick={readNotification}
             className="float-end"
           >

@@ -52,6 +52,8 @@ function FriendRequests(props) {
                 <FriendRequest
                   key={index}
                   getFriendRequestsData={getFriendRequestsData}
+                  setTrigger={props.setTrigger}
+                  trigger={props.trigger}
                   item={item}
                 />
               </li>

@@ -28,6 +28,7 @@ function FriendRequest(props) {
       )
       .then((res) => {
         props.getFriendRequestsData();
+        props.setTrigger(props.trigger + 1);
         setLoading(false);
       })
       .catch((err) => {
@@ -55,6 +56,7 @@ function FriendRequest(props) {
       )
       .then((res) => {
         props.getFriendRequestsData();
+        props.setTrigger(props.trigger + 1);
         setLoading(false);
       })
       .catch((err) => {
@@ -66,7 +68,7 @@ function FriendRequest(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <Card style={{ width: "90%", maxWidth: "32rem",  margin: "20px"}}>
+      <Card style={{ width: "90%", maxWidth: "32rem", margin: "20px" }}>
         <Card.Body>
           Friend request from {props.item.firstname} {props.item.lastname}
           <div className="float-end">

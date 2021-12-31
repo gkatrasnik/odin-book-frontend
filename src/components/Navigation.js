@@ -15,14 +15,23 @@ import {
 } from "react-bootstrap-icons";
 import axios from "axios";
 
-function Navigation() {
+function Navigation(props) {
   const { user, logout } = useContext(UserContext);
   const [notificationsList, setNotificationsList] = useState([]);
   const [friendRequestsList, setFriendRequestsList] = useState([]);
 
+  //run to update notifications when notification read
   useEffect(() => {
     getNotificationsData();
     getFriendRequestsData();
+
+    console.log(props.triger);
+  }, [props.trigger]);
+
+  //run on login
+  useEffect(() => {
+    props.setTrigger(props.trigger + 1);
+    console.log("strat", props.trigger);
   }, [user]);
 
   const getNotificationsData = async () => {

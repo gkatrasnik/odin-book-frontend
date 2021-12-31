@@ -52,6 +52,8 @@ function Notifications(props) {
                 <Notification
                   key={index}
                   getNotificationsData={getNotificationsData}
+                  setTrigger={props.setTrigger}
+                  trigger={props.trigger}
                   item={item}
                 />
               </li>
