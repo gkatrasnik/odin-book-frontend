@@ -80,7 +80,7 @@ function Navigation(props) {
       <Container>
         <Navbar.Brand>
           <Nav.Link as={Link} to="/">
-            <h3>FAKE BOOK</h3>
+            <h3>ODIN BOOK</h3>
           </Nav.Link>
         </Navbar.Brand>
 
