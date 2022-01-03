@@ -45,14 +45,12 @@ function Post(props) {
   };
 
   const handleCommentAdd = (event) => {
-    setLoading(true);
-
     event.preventDefault();
     if (!commentContent) {
       alert(" Comment can not be empty!");
       return;
     }
-
+    setLoading(true);
     const token = localStorage.getItem("token");
 
     var postId = props.item._id;
@@ -139,7 +137,7 @@ function Post(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <Card style={{ width: "90%", maxWidth: "32rem",  margin: "20px"}}>
+      <Card style={{ width: "90%", maxWidth: "32rem", margin: "20px" }}>
         <Card.Header className="mb-2">
           <Link to="/userprofile" state={{ targetUser: props.item.user }}>
             {props.item.user.firstname} {props.item.user.lastname}
@@ -170,9 +168,9 @@ function Post(props) {
           <Card.Text>
             Likes: {postLikesCount}
             {postLiked ? (
-              <HeartFill onClick={likePost} className="mx-2 hand"/>
+              <HeartFill onClick={likePost} className="mx-2 hand" />
             ) : (
-              <Heart onClick={likePost} className="mx-2 hand"/>
+              <Heart onClick={likePost} className="mx-2 hand" />
             )}
           </Card.Text>
         </Card.Body>
