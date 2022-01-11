@@ -17,9 +17,9 @@ $dark: #4e4e4e;
 $enable-gradients: false;
 $spacer: 1rem;
 $border-width: 3px;
+$enable-shadows: true;
 
 $enable-rounded: true;
-$enable-shadows: false;
 $body-text-align: null;
 
 /*! Import Bootstrap 5 variables */
@@ -29,7 +29,9 @@ $body-text-align: null;
 
 $body-color: $gray-900;
 $body-bg: $white;
-
+$btn-box-shadow: inset 3px 3px 3px rgba($white, 0.3),
+  2px 2px 2px rgba($black, 0.2);
+$btn-border-width: 0;
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 // Add SASS theme customizations here..
