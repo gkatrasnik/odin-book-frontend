@@ -87,7 +87,10 @@ function NotFriend(props) {
   };
 
   return (
-    <Card style={{ width: "90%", maxWidth: "32rem",  margin: "20px"}}>
+    <Card
+      style={{ width: "90%", maxWidth: "32rem", margin: "20px" }}
+      className="box-shadow"
+    >
       <Card.Body>
         {props.item.firstname} {props.item.lastname}
         {requestSent ? (

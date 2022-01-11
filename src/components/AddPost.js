@@ -48,29 +48,32 @@ function AddPost(props) {
   return (
     <>
       {loading && <LoadingModal />}
-    <Card style={{ width: "90%", maxWidth: "32rem",  margin: "auto"}} className="mt-2">
-    <Card.Body>
-      <Form
-        onSubmit={handlePostAdd}
-        style={{ width: "90%", maxWidth: "32rem",  margin: "auto"}}
+      <Card
+        style={{ width: "90%", maxWidth: "32rem", margin: "auto" }}
+        className="mt-2 box-shadow"
       >
-        <h1 className="center my-2">Add new post</h1>
+        <Card.Body>
+          <Form
+            onSubmit={handlePostAdd}
+            style={{ width: "90%", maxWidth: "32rem", margin: "auto" }}
+          >
+            <h1 className="center my-2">Add new post</h1>
 
-        <Form.Group className="mb-3" controlId="content">
-          <Form.Control
-            type="text"
-            placeholder="Write something..."
-            value={postContent}
-            onChange={(e) => setPostContent(e.target.value)}
-          />
-        </Form.Group>
+            <Form.Group className="mb-3" controlId="content">
+              <Form.Control
+                type="text"
+                placeholder="Write something..."
+                value={postContent}
+                onChange={(e) => setPostContent(e.target.value)}
+              />
+            </Form.Group>
 
-        <Button variant="primary" type="submit" className="float-end">
-          Add Post
-        </Button>
-      </Form>
-</Card.Body>
-</Card>
+            <Button variant="primary" type="submit" className="float-end">
+              Add Post
+            </Button>
+          </Form>
+        </Card.Body>
+      </Card>
     </>
   );
 }

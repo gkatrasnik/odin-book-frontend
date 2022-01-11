@@ -142,7 +142,10 @@ function SinglePost(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <Card  style={{ width: "90%", maxWidth: "32rem",  margin: "auto"}} className=" mt-2">
+      <Card
+        style={{ width: "90%", maxWidth: "32rem", margin: "auto" }}
+        className=" mt-2 box-shadow"
+      >
         <Card.Header className="mb-2">
           <Link to="/userprofile" state={{ targetUser: item.user }}>
             {item.user.firstname} {item.user.lastname}
@@ -173,9 +176,9 @@ function SinglePost(props) {
           <Card.Text>
             Likes: {postLikesCount}
             {postLiked ? (
-              <HeartFill onClick={likePost} className="mx-2 hand"/>
+              <HeartFill onClick={likePost} className="mx-2 hand" />
             ) : (
-              <Heart onClick={likePost} className="mx-2 hand"/>
+              <Heart onClick={likePost} className="mx-2 hand" />
             )}
           </Card.Text>
         </Card.Body>

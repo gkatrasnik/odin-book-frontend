@@ -1,40 +1,38 @@
 /*! `Custom` Bootstrap 5 theme */
 @import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css);
 @import url(https://fonts.googleapis.com/css?family=Quicksand:200,300,400,700);
-$font-family-base:Quicksand;
+$font-family-base: Quicksand;
 @import url(https://fonts.googleapis.com/css?family=Quicksand:200,300,400,700);
-$headings-font-family:Quicksand;
+$headings-font-family: Quicksand;
 
-$enable-grid-classes:false;
-$primary:#07689F;
-$secondary:#C9D6DF;
-$success:#11D3BC;
-$danger:#F67280;
-$info:#A2D5F2;
-$warning:#FF7E67;
-$light:#FAFAFA;
-$dark:#4e4e4e;
-$enable-gradients:false;
-$spacer:1rem;
-$border-width:3px;
+$enable-grid-classes: false;
+$primary: #07689f;
+$secondary: #c9d6df;
+$success: #11d3bc;
+$danger: #f67280;
+$info: #a2d5f2;
+$warning: #ff7e67;
+$light: #fafafa;
+$dark: #4e4e4e;
+$enable-gradients: false;
+$spacer: 1rem;
+$border-width: 3px;
 
-$enable-rounded:true;
-$enable-shadows:false;
-$body-text-align:null;
+$enable-rounded: true;
+$enable-shadows: false;
+$body-text-align: null;
 
 /*! Import Bootstrap 5 variables */
 
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 
-$body-color:$gray-900;
-$body-bg:$white;
+$body-color: $gray-900;
+$body-bg: $white;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 // Add SASS theme customizations here..
-
-
 
 .spinner {
   position: fixed;
@@ -43,7 +41,7 @@ $body-bg:$white;
   left: 0;
   right: 0;
   top: 40vh;
-  color: #A2D5F2;
+  color: #a2d5f2;
   width: 4rem;
   height: 4rem;
   z-index: 10000;
@@ -53,18 +51,10 @@ $body-bg:$white;
   text-align: center;
 }
 
-.card-g {
-  width: "80%" !important;
-  max-width: "32rem" !important;
-  margin: "20px" !important
-}
-
-.card-auto {
-  width: "80%" !important;
-  max-width: "32rem" !important;
-  margin: "auto" !important
-}
-
 .hand:hover {
   cursor: pointer;
+}
+
+.box-shadow {
+  box-shadow: 5px 5px 10px grey;
 }

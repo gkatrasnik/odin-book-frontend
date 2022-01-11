@@ -50,70 +50,73 @@ function Signup() {
   return (
     <>
       {loading && <LoadingModal />}
-      <Card style={{ width: "90%", maxWidth: "32rem",  margin: "auto"}}>
-      <Card.Body>
-      <h1 className="center">Sign up</h1>
-      <Form
+      <Card
         style={{ width: "90%", maxWidth: "32rem", margin: "auto" }}
-        onSubmit={signupHandler}
+        className="box-shadow"
       >
-        <Form.Group className="mb-3" controlId="firstname">
-          <Form.Label>First Name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter first name"
-            onChange={(e) => {
-              setCurrentFirstname(e.target.value);
-            }}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="lastname">
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter last name"
-            onChange={(e) => {
-              setCurrentLastname(e.target.value);
-            }}
-          />
-        </Form.Group>
+        <Card.Body>
+          <h1 className="center">Sign up</h1>
+          <Form
+            style={{ width: "90%", maxWidth: "32rem", margin: "auto" }}
+            onSubmit={signupHandler}
+          >
+            <Form.Group className="mb-3" controlId="firstname">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter first name"
+                onChange={(e) => {
+                  setCurrentFirstname(e.target.value);
+                }}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="lastname">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter last name"
+                onChange={(e) => {
+                  setCurrentLastname(e.target.value);
+                }}
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="username">
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter username"
-            onChange={(e) => {
-              setCurrentUsername(e.target.value);
-            }}
-          />
-        </Form.Group>
+            <Form.Group className="mb-3" controlId="username">
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter username"
+                onChange={(e) => {
+                  setCurrentUsername(e.target.value);
+                }}
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            onChange={(e) => {
-              setCurrentPassword(e.target.value);
-            }}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="confirm-password">
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Confirm Password"
-            onChange={(e) => {
-              setCurrentPassword2(e.target.value);
-            }}
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit" className="float-end">
-          Sign up
-        </Button>
-      </Form>
-      </Card.Body>
+            <Form.Group className="mb-3" controlId="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                onChange={(e) => {
+                  setCurrentPassword(e.target.value);
+                }}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="confirm-password">
+              <Form.Label>Confirm Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Confirm Password"
+                onChange={(e) => {
+                  setCurrentPassword2(e.target.value);
+                }}
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit" className="float-end">
+              Sign up
+            </Button>
+          </Form>
+        </Card.Body>
       </Card>
     </>
   );

@@ -137,7 +137,10 @@ function Post(props) {
   return (
     <>
       {loading && <LoadingModal />}
-      <Card style={{ width: "90%", maxWidth: "32rem", margin: "20px" }}>
+      <Card
+        style={{ width: "90%", maxWidth: "32rem", margin: "20px" }}
+        className="box-shadow"
+      >
         <Card.Header className="mb-2">
           <Link to="/userprofile" state={{ targetUser: props.item.user }}>
             {props.item.user.firstname} {props.item.user.lastname}
