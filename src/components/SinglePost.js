@@ -48,14 +48,12 @@ function SinglePost(props) {
   };
 
   const handleCommentAdd = (event) => {
-    setLoading(true);
-
     event.preventDefault();
     if (!commentContent) {
       alert(" Comment can not be empty!");
       return;
     }
-
+    setLoading(true);
     const token = localStorage.getItem("token");
 
     var postId = item._id;
